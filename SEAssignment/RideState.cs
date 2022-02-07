@@ -14,10 +14,14 @@ public abstract class RideState
 
 	public abstract void cancelRide();
 	
-	public Ride Ride { get;}
+	public Ride Ride { 
+        get {
+            return ride;
+        }
+    }
 
-    public string RideStateName { get
-        {
+    public string RideStateName { 
+        get {
             return rideStateName;
         }
     }

@@ -32,7 +32,13 @@ public abstract class UserAccount : Observer
     }
 
     public int Id { get; set; }
-    public List<Ride> RideList { get; }
+    public List<Ride> RideList {
+        get
+        {
+            return rideList;
+        }
+    }
+
     public abstract void addRide(Ride r);
 
     public string Name { get; set; }

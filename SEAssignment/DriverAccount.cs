@@ -5,7 +5,7 @@ public class DriverAccount : UserAccount
 
     private string bankAccNo;
     private string bankName;
-    private decimal amount;
+    private double amount;
     private Vehicle vehicle;
 
     public DriverAccount(string bankNo, string bankNa, string username, string contact, string email) : base(username, contact, email)
@@ -28,8 +28,19 @@ public class DriverAccount : UserAccount
     public string BankAccNo { get; set; }
     public string BankName { get; set; }
 
-    public decimal Amount { get; set; }
+    public double Amount { get; set; }
 
-    public Vehicle Vehicle { get; set; }
+    public Vehicle Vehicle
+    {
+        get
+        {
+            return vehicle;
+        }
 
+        set
+        {
+            vehicle = value;
+        }
+
+    }
 }

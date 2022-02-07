@@ -3,11 +3,11 @@
 public abstract class  Payment
 {
 	protected string purpose; // Booking Fee, Trip Fare, Deposit
-	protected decimal amount;
+	protected double amount;
 	protected string status; // A refunded receipt may not refund all payments
 	protected Receipt receipt;
 
-	public Payment(Receipt r, string purp, decimal amt)
+	public Payment(Receipt r, string purp, double amt)
     {
 
 		receipt = r;
@@ -23,7 +23,7 @@ public abstract class  Payment
 	public abstract void refund();
 
     public string Purpose { get; set; }
-	public decimal Amount { get; set; }
+	public double Amount { get; set; }
 	public string Status { get; set; }
 	public Receipt Receipt
 	{

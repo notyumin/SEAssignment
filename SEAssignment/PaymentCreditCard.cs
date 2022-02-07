@@ -4,7 +4,7 @@ public class PaymentCreditCard : Payment
 {
 	private string creditCardNo;
 
-	public PaymentCreditCard(string creditNo, Receipt r, string purp, decimal amt) : base(r, purp, amt)
+	public PaymentCreditCard(string creditNo, Receipt r, string purp, double amt) : base(r, purp, amt)
 	{
 		creditCardNo = creditNo;
 	}

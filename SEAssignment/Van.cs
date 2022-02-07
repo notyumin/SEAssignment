@@ -1,18 +1,40 @@
 ﻿using System;
 
-public class Van: Vehicle
+public class Van : Vehicle
 {
-    private decimal deposit;
+    private double deposit;
 
-    private decimal bookingFee;
+    private double bookingFee;
 
-    public Van(decimal depo, decimal fee, string plateNo, string vehBrand, string vehModel): base(plateNo, vehBrand, vehModel)
+    public Van(double depo, double fee, string plateNo, string vehBrand, string vehModel) : base(plateNo, vehBrand, vehModel)
     {
         deposit = depo;
         bookingFee = fee;
+
     }
 
-    public decimal Deposit { get; set; }
-    public decimal BookingFee { get; set; }
+    public double Deposit
+    {
+        get
+        {
+            return deposit;
+        }
+        set
+        {
+            deposit = value;
+        }
+    }
 
+    public double BookingFee
+    {
+        get
+        {
+            return bookingFee;
+        }
+        set
+        {
+            bookingFee = value;
+        }
+
+    }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class Ride : Subject
 {
 	private int refNo;
-	private decimal fare;
+	private double fare;
 	private string pickUpPoint;
 	private string destination;
 	private DateTime startTime;
@@ -98,18 +98,17 @@ public class Ride : Subject
 	}
 
 	public int RefNo { get; set; }
-	public decimal Fare { get; set; }
+	public double Fare { get; set; }
 	public string PickUpPoint { get; set; }
 	public string Destination { get; set; }
 	public DateTime StartTime { get; set; }
 	public DateTime EndTime { get; set; }
 
-	public DriverAccount Driver { 
+	public DriverAccount Driver {
 		get
         {
 			return driver;
         }
-		
 		set {
 			if (driver != value) {
 				driver = value;
@@ -118,7 +117,12 @@ public class Ride : Subject
 		} 
 	}
 
-	public CustomerAccount Customer { get; }
+	public CustomerAccount Customer {
+		get
+		{
+			return customer;
+		}
+	}
 
 	public RideState RideCurrState { get
 		{
@@ -138,12 +142,59 @@ public class Ride : Subject
 		}
 	}
 
-	public RideState RideRequestedState { get;}
-	public RideState DriverAssignedState { get;}
-	public RideState CustomerCancelledState { get;}
-	public RideState CustomerWaitingState { get;}
-	public RideState DriverArrivedState { get;}
-	public RideState RideStartedState { get;}
-	public RideState RideDoneState { get;}
+	public RideState RideRequestedState
+	{
+		get
+		{
+			return rideRequestedState;
+		}
+	}
 
+	public RideState DriverAssignedState
+	{
+		get
+		{
+			return driverAssignedState;
+		}
+	}
+
+	public RideState CustomerCancelledState
+	{
+		get
+		{
+			return customerCancelledState;
+		}
+	}
+
+	public RideState CustomerWaitingState
+	{
+		get
+		{
+			return customerWaitingState;
+		}
+	}
+
+	public RideState DriverArrivedState
+	{
+		get
+		{
+			return driverArrivedState;
+		}
+	}
+
+	public RideState RideStartedState
+	{
+		get
+		{
+			return rideStartedState;
+		}
+	}
+
+	public RideState RideDoneState
+	{
+		get
+		{
+			return rideDoneState;
+		}
+	}
 }

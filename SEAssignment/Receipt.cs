@@ -29,9 +29,19 @@ public class Receipt
 	public decimal Amount { get; set; }
 	public string Status { get; set; }
 	public int PointsEarned { get; set; }
-	public Ride Ride { get;}
+	public Ride Ride {
+		get
+		{
+			return ride;
+		}
+	}
 
-	public List<Payment> PaymentList { get; }
+	public List<Payment> PaymentList {
+		get
+		{
+			return paymentList;
+		}
+	}
 
 	public void addPayment(Payment p)
 	{
