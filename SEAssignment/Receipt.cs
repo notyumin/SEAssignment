@@ -16,6 +16,8 @@ public class Receipt
 		pointsEarned = 0;
 		ride = r;
 
+		paymentList = new List<Payment>();
+
 	}
 
 	int calculatePoints()

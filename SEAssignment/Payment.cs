@@ -9,6 +9,7 @@ public abstract class  Payment
 
 	public Payment(Receipt r, string purp, decimal amt)
     {
+
 		receipt = r;
 		receipt.addPayment(this);
 

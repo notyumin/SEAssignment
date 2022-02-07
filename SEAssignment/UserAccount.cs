@@ -17,6 +17,7 @@ public abstract class UserAccount : Observer
         name = username;
         contactNo = contact;
         emailAddr = email;
+        rideList = new List<Ride>();
     }
 
     public void update(Subject s)

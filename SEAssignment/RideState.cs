@@ -14,7 +14,7 @@ public abstract class RideState
 
 	public abstract void cancelRide();
 	
-	public Ride Ride { get; set; }
+	public Ride Ride { get;}
 
 	public string Name { get; set; }
 

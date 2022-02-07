@@ -31,6 +31,7 @@ public class Ride : Subject
 		pickUpPoint = departing;
 		destination = dropOffPoint;
 		startTime = start;
+
 		customer = cust;
 		customer.addRide(this);
 		// auto increment ref no
@@ -43,12 +44,14 @@ public class Ride : Subject
 		rideStartedState = new RideStartedState(this, "Ride Started");
 		rideDoneState = new RideDoneState(this, "Ride Done");
 
-		setState(rideRequestedState);
 
 		observers = new List<Observer>();
+
+		setState(rideRequestedState);
 		registerObserver(customer);
 
 		receipt = new Receipt(this);
+		Console.WriteLine(this.PickUpPoint);
 
 		calculateEndTime();
 
@@ -57,9 +60,8 @@ public class Ride : Subject
 
     public void setState(RideState s)
 	{
-		notifyObservers();
 		state = s;
-
+		notifyObservers();
 	}
 
 	public void registerObserver(Observer o)
