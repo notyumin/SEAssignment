@@ -46,7 +46,7 @@ public class Ride : Subject
 		observers = new List<Observer>();
 	}
 
-	public void setState(RideState s)
+    public void setState(RideState s)
 	{
 		notifyObservers();
 		state = s;

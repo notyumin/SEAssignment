@@ -14,4 +14,17 @@ public class CustomerAccount : UserAccount
 
     public bool Premium { get; set; }
     public int Points { get; set; }
+
+    public void makeBooking()
+    {
+        
+        Console.WriteLine("What is your pick up point postal code: ");
+        string pickuppoint = Console.ReadLine();
+
+        Console.WriteLine("What is your drop off point postal code: ");
+        string dropoffpoint = Console.ReadLine();
+
+        Ride ride = new Ride(pickuppoint, dropoffpoint, DateTime.Now);
+        
+    }
 }
