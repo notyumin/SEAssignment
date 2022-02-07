@@ -21,5 +21,21 @@ public abstract class  Payment
     public string Purpose { get; set; }
 	public decimal Amount { get; set; }
 	public string Status { get; set; }
-	public Receipt Receipt { get; set; }
+	public Receipt Receipt
+	{
+		get
+		{
+			return receipt;
+		}
+
+		set
+		{
+			if (receipt != value)
+			{
+				receipt = value;
+				value.addPayment(this);
+			}
+		}
+	}
+
 }

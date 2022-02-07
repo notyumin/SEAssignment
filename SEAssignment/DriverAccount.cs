@@ -8,11 +8,21 @@ public class DriverAccount : UserAccount
     private decimal amount;
     private Vehicle vehicle;
 
-    public DriverAccount(string bankNo, string bankNa, string n, string cNo, string eA) : base(n, cNo, eA)
+    public DriverAccount(string bankNo, string bankNa, string username, string contact, string email) : base(username, contact, email)
     {
         bankAccNo = bankNo;
         bankName = bankNa;
         amount = 0;
+    }
+
+    public override void addRide(Ride r)
+    {
+        if (!rideList.Contains(r))
+        {
+            rideList.Add(r);
+            r.Driver = this;
+        }
+
     }
 
     public string BankAccNo { get; set; }

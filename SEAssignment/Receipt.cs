@@ -15,6 +15,7 @@ public class Receipt
 		status = "Unpaid";
 		pointsEarned = 0;
 		ride = r;
+
 	}
 
 	void calculatePoints()
@@ -25,6 +26,18 @@ public class Receipt
 	public decimal Amount { get; set; }
 	public string Status { get; set; }
 	public int PointsEarned { get; set; }
-	public Ride Ride { get; set; }
-	public List<Payment> PaymentList { get; set; }
+	public Ride Ride { get;}
+
+	public List<Payment> PaymentList { get; }
+
+	public void addPayment(Payment p)
+	{
+
+		if (!paymentList.Contains(p))
+		{
+			paymentList.Add(p);
+			p.Receipt = this;
+		}
+
+	}
 }

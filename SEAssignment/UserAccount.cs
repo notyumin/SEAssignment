@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class UserAccount : Observer
+public abstract class UserAccount : Observer
 {
 
-    private static int id;
-    private List<Ride> rideList;
-    private string name;
-    private string contactNo;
-    private string emailAddr;
-    private double rating;
+    protected static int id;
+    protected List<Ride> rideList;
+    protected string name;
+    protected string contactNo;
+    protected string emailAddr;
+    protected double rating;
 
-    public UserAccount(string n, string cNo, string eA)
+    public UserAccount(string username, string contact, string email)
     {
         // auto increment id
-        name = n;
-        contactNo = cNo;
-        emailAddr = eA;
+        name = username;
+        contactNo = contact;
+        emailAddr = email;
     }
 
     public void update(Subject s)
@@ -25,12 +25,14 @@ public class UserAccount : Observer
         {
             Ride ride = (Ride) s;
             // Implementation of phone notification system
-            Console.WriteLine("Ride has updated to status: " + ride.State.Name);
+            Console.WriteLine(name + "'s ride has updated it's status to: " + ride.State.Name);
         }
     }
 
     public int Id { get; set; }
-    public List<Ride> RideList { get; set; }
+    public List<Ride> RideList { get; }
+    public abstract void addRide(Ride r);
+
     public string Name { get; set; }
     public string ContactNo { get; set; }
     public string EmailAddr { get; set; }
