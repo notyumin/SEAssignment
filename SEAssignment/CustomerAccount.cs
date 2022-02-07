@@ -33,7 +33,7 @@ public class CustomerAccount : UserAccount
         Console.WriteLine("What is your drop off point postal code: ");
         string dropoffpoint = Console.ReadLine();
 
-        Ride ride = new Ride(pickuppoint, dropoffpoint, DateTime.Now);
+        Ride ride = new Ride(pickuppoint, dropoffpoint, DateTime.Now, this);
         
     }
 }
