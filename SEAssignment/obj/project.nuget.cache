@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "N3PArSKd3DNhC2ESLQjX4x9YYJjMsw23DE0vTMgJ5Or/32IdHyuQckHlbmxNwuonyksgbm8RqIYZzbgZ1tm21Q==",
+  "dgSpecHash": "K9lVx0/VdWV/WuVO7IZC4XUeZu+ANFRZfrK2lwbXFHtmwA3KfY3WRCTgiVuPPCbumh35Vm6F0+SqQvBUTv5R6Q==",
   "success": true,
-  "projectFilePath": "C:\\Workspace\\SEAssignment\\SEAssignment\\SEAssignment.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\harir\\Desktop\\SEM 6\\SE\\SE Assignment code\\SEAssignment\\SEAssignment.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\harir\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
   "logs": []
 }
