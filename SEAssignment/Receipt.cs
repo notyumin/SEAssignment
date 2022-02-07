@@ -18,9 +18,10 @@ public class Receipt
 
 	}
 
-	void calculatePoints()
+	int calculatePoints()
     {
 		// implementation for points calculation
+		return pointsEarned; // when printing receipt after completed ride, add points to user 
 	}
 
 	public decimal Amount { get; set; }

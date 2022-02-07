@@ -17,7 +17,6 @@ public class CustomerAccount : UserAccount
         if (!rideList.Contains(r))
         {
             rideList.Add(r);
-            r.Customer = this;
         }
 
     }

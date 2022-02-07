@@ -32,6 +32,7 @@ public class Ride : Subject
 		destination = dropOffPoint;
 		startTime = start;
 		customer = cust;
+		customer.addRide(this);
 		// auto increment ref no
 
 		rideRequestedState = new RideRequestedState(this, "Ride Requested");
@@ -112,22 +113,7 @@ public class Ride : Subject
 		} 
 	}
 
-	public CustomerAccount Customer
-	{
-		get
-		{
-			return customer;
-		}
-
-		set
-		{
-			if (customer != value)
-			{
-				customer = value;
-				value.addRide(this);
-			}
-		}
-	}
+	public CustomerAccount Customer { get; }
 
 	public RideState State { get; set; }
 	public Receipt Receipt { get; }

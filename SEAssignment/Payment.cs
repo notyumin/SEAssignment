@@ -10,9 +10,12 @@ public abstract class  Payment
 	public Payment(Receipt r, string p, decimal a)
     {
 		receipt = r;
+		receipt.addPayment(this);
+
 		purpose = p;
 		amount = a;
 		status = "Paid";
+
     }
 
 	public abstract void pay();
@@ -28,14 +31,6 @@ public abstract class  Payment
 			return receipt;
 		}
 
-		set
-		{
-			if (receipt != value)
-			{
-				receipt = value;
-				value.addPayment(this);
-			}
-		}
 	}
 
 }
