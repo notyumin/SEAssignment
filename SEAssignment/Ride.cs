@@ -26,11 +26,13 @@ public class Ride : Subject
 
 	private List<Observer> observers; // user accounts
 
-	public Ride(string departing, string dropOffPoint, DateTime start)
+	public Ride(string departing, string dropOffPoint, DateTime start, CustomerAccount cust)
 	{
 		pickUpPoint = departing;
 		destination = dropOffPoint;
 		startTime = start;
+		customer = cust;
+		customer.addRide(this);
 		// auto increment ref no
 
 		rideRequestedState = new RideRequestedState(this, "Ride Requested");
@@ -44,6 +46,13 @@ public class Ride : Subject
 		setState(rideRequestedState);
 
 		observers = new List<Observer>();
+		registerObserver(customer);
+
+		receipt = new Receipt(this);
+
+		calculateEndTime();
+
+		calculateFare();
 	}
 
     public void setState(RideState s)
@@ -68,11 +77,14 @@ public class Ride : Subject
 		foreach (Observer o in observers)
 			o.update(this);
 	}
-
-
 	public void calculateFare()
 	{
 		// implementation for fare calculation
+	}
+
+	public void calculateEndTime()
+	{
+		// implementation for end time calculation
 	}
 
 	public void cancelRide()
@@ -87,18 +99,31 @@ public class Ride : Subject
 	public DateTime StartTime { get; set; }
 	public DateTime EndTime { get; set; }
 
-	public DriverAccount Driver { get; set; }
-	public CustomerAccount Customer { get; set; }
+	public DriverAccount Driver { 
+		get
+        {
+			return driver;
+        }
+		
+		set {
+			if (driver != value) {
+				driver = value;
+				value.addRide(this);
+			}
+		} 
+	}
+
+	public CustomerAccount Customer { get; }
 
 	public RideState State { get; set; }
-	public Receipt Receipt { get; set; }
+	public Receipt Receipt { get; }
 
-	public RideState RideRequestedState { get; set; }
-	public RideState DriverAssignedState { get; set; }
-	public RideState CustomerCancelledState { get; set; }
-	public RideState CustomerWaitingState { get; set; }
-	public RideState DriverArrivedState { get; set; }
-	public RideState RideStartedState { get; set; }
-	public RideState RideDoneState { get; set; }
+	public RideState RideRequestedState { get;}
+	public RideState DriverAssignedState { get;}
+	public RideState CustomerCancelledState { get;}
+	public RideState CustomerWaitingState { get;}
+	public RideState DriverArrivedState { get;}
+	public RideState RideStartedState { get;}
+	public RideState RideDoneState { get;}
 
 }
