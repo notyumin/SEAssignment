@@ -4,7 +4,7 @@ public class PaymentGiftCard : Payment
 {
 	private GiftCard giftCard;
 
-	public PaymentGiftCard(GiftCard gift, Receipt r, string p, decimal a) : base(r, p, a) {
+	public PaymentGiftCard(GiftCard gift, Receipt r, string purp, decimal amt) : base(r, purp, amt) {
 		giftCard = gift;
 	}
 

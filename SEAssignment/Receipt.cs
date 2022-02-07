@@ -37,7 +37,6 @@ public class Receipt
 		if (!paymentList.Contains(p))
 		{
 			paymentList.Add(p);
-			p.Receipt = this;
 		}
 
 	}

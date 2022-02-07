@@ -7,13 +7,13 @@ public abstract class  Payment
 	protected string status; // A refunded receipt may not refund all payments
 	protected Receipt receipt;
 
-	public Payment(Receipt r, string p, decimal a)
+	public Payment(Receipt r, string purp, decimal amt)
     {
 		receipt = r;
 		receipt.addPayment(this);
 
-		purpose = p;
-		amount = a;
+		purpose = purp;
+		amount = amt;
 		status = "Paid";
 
     }
