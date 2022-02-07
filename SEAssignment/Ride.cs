@@ -55,7 +55,7 @@ public class Ride : Subject
 		calculateFare();
 	}
 
-	public void setState(RideState s)
+    public void setState(RideState s)
 	{
 		notifyObservers();
 		state = s;
