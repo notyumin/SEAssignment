@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\notyu\\.nuget\\packages\\": {},
+    "C:\\Users\\yapzh\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Workspace\\SEAssignment\\SEAssignment\\SEAssignment.csproj",
+      "projectUniqueName": "C:\\Users\\yapzh\\Downloads\\Sem 3.2\\Software Engineering\\New-SE-Assignment\\SEAssignment\\SEAssignment.csproj",
       "projectName": "SEAssignment",
-      "projectPath": "C:\\Workspace\\SEAssignment\\SEAssignment\\SEAssignment.csproj",
-      "packagesPath": "C:\\Users\\notyu\\.nuget\\packages\\",
-      "outputPath": "C:\\Workspace\\SEAssignment\\SEAssignment\\obj\\",
+      "projectPath": "C:\\Users\\yapzh\\Downloads\\Sem 3.2\\Software Engineering\\New-SE-Assignment\\SEAssignment\\SEAssignment.csproj",
+      "packagesPath": "C:\\Users\\yapzh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\yapzh\\Downloads\\Sem 3.2\\Software Engineering\\New-SE-Assignment\\SEAssignment\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\notyu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yapzh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -36,6 +36,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -47,6 +48,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -62,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
