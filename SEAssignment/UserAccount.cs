@@ -25,8 +25,9 @@ public abstract class UserAccount : Observer
         if (s is Ride)
         {
             Ride ride = (Ride) s;
+
             // Implementation of phone notification system
-            Console.WriteLine(name + "'s ride has updated it's status to: " + ride.State.Name);
+            Console.WriteLine(name + "'s ride has updated it's status to: " + ride.RideCurrState.RideStateName);
         }
     }
 

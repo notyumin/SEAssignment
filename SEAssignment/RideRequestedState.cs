@@ -3,7 +3,7 @@
 public class RideRequestedState : RideState
 {
 
-	public RideRequestedState(Ride r, string n) :base(r,n) {}
+	public RideRequestedState(Ride r, string n) : base(r,n) {}
 
 	public override void cancelRide()
 	{

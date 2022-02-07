@@ -22,7 +22,7 @@ public class Ride : Subject
 	private RideState rideStartedState;
 	private RideState rideDoneState;
 
-	private RideState state;
+	private RideState rideCurrState;
 
 	private List<Observer> observers; // user accounts
 
@@ -47,11 +47,10 @@ public class Ride : Subject
 
 		observers = new List<Observer>();
 
-		setState(rideRequestedState);
 		registerObserver(customer);
+		setState(rideRequestedState);
 
 		receipt = new Receipt(this);
-		Console.WriteLine(this.PickUpPoint);
 
 		calculateEndTime();
 
@@ -60,7 +59,7 @@ public class Ride : Subject
 
     public void setState(RideState s)
 	{
-		state = s;
+		rideCurrState = s;
 		notifyObservers();
 	}
 
@@ -77,8 +76,12 @@ public class Ride : Subject
 	public void notifyObservers()
 	{
 		foreach (Observer o in observers)
+		{
 			o.update(this);
+			
+		}
 	}
+
 	public void calculateFare()
 	{
 		// implementation for fare calculation
@@ -91,7 +94,7 @@ public class Ride : Subject
 
 	public void cancelRide()
     {
-		state.cancelRide();
+		rideCurrState.cancelRide();
 	}
 
 	public int RefNo { get; set; }
@@ -117,8 +120,23 @@ public class Ride : Subject
 
 	public CustomerAccount Customer { get; }
 
-	public RideState State { get; set; }
-	public Receipt Receipt { get; }
+	public RideState RideCurrState { get
+		{
+			return rideCurrState;
+		}
+		set
+		{
+			rideCurrState = value;
+		}
+
+	}
+
+	public Receipt Receipt {
+		get
+		{
+			return receipt;
+		}
+	}
 
 	public RideState RideRequestedState { get;}
 	public RideState DriverAssignedState { get;}
