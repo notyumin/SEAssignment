@@ -20,8 +20,7 @@ namespace SEAssignment
             PaymentPoints payPoint = new PaymentPoints(receipt, "Booking Fee", 20);
             PaymentCreditCard payCC = new PaymentCreditCard("9403-9030-0943", receipt, "Booking Fee", 300.45);
             PaymentCreditCard payCC2 = new PaymentCreditCard("9403-9030-0943", receipt, "Deposit", 300.45);
-
-            Console.WriteLine(payPoint.Amount);
+            ride.cancelRide();
 
             ride.setState(ride.RideDoneState);
             ride.cancelRide();

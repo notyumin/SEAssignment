@@ -101,7 +101,16 @@ public class Ride : Subject
 	public double Fare { get; set; }
 	public string PickUpPoint { get; set; }
 	public string Destination { get; set; }
-	public DateTime StartTime { get; set; }
+	public DateTime StartTime {
+		get
+		{
+			return startTime;
+		}
+		set
+		{
+			startTime = value;
+		}
+	}
 	public DateTime EndTime { get; set; }
 
 	public DriverAccount Driver {
