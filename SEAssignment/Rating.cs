@@ -17,6 +17,7 @@ public class Rating : Subject
         stars = r;
         rater = ter;
         ratee = tee;
+        tee.addRating(this);
 
         // add admin and ratee as observers
         AdminAccount admin = AdminAccount.getInstance();
@@ -24,20 +25,36 @@ public class Rating : Subject
         notifyObservers();
     }
 
-    public int Id { get; set; }
-    public int Stars { get; set; }
-    public UserAccount Rater { get; set; }
+    public int Id {
+        get
+        {
+            return id;
+        }
+        set
+        {
+            id = value;
+        }
+    }
+    public int Stars {
+        get
+        {
+            return stars;
+        }
+        set
+        {
+            stars = value;
+        }
+    }
+    public UserAccount Rater {
+        get
+        {
+            return rater;
+        }
+    }
+
     public UserAccount Ratee
     {
         get { return ratee; }
-        set
-        {
-            if (ratee != value)
-            {
-                rater = value;
-                value.addRating(this);
-            }
-        }
     }
 
     public void registerObserver(Observer o)

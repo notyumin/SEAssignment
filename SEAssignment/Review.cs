@@ -16,6 +16,7 @@ public class Review : Subject
         description = r;
         reviewer = er;
         reviewee = ee;
+        ee.addReview(this);
 
         // add admin and ratee as observers
         AdminAccount admin = AdminAccount.getInstance();
@@ -23,20 +24,38 @@ public class Review : Subject
         notifyObservers();
     }
 
-    public int Id { get; set; }
-    public string Description { get; set; }
-    public CustomerAccount Reviewer { get; set; }
+    public int Id {
+        get
+        {
+            return id;
+        }
+        set
+        {
+            id = value;
+        }
+    }
+
+    public string Description {
+        get
+        {
+            return description;
+        }
+        set
+        {
+            description = value;
+        }
+    }
+
+    public CustomerAccount Reviewer {
+        get
+        {
+            return reviewer;
+        }
+    }
+
     public DriverAccount Reviewee
     {
         get { return reviewee; }
-        set
-        {
-            if (reviewee != value)
-            {
-                reviewee = value;
-                value.addReview(this);
-            }
-        }
     }
 
 

@@ -33,7 +33,6 @@ public class DriverAccount : UserAccount
         if (!reviewList.Contains(r))
         {
             reviewList.Add(r);
-            r.Reviewee = this;
         }
     }
 
