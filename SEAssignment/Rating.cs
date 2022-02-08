@@ -11,7 +11,7 @@ public class Rating : Subject
 
     private List<Observer> observers;
 
-    Rating(int r, UserAccount ter, UserAccount tee)
+    public Rating(int r, UserAccount ter, UserAccount tee)
     {
         // auto increment id
         stars = r;
@@ -21,6 +21,7 @@ public class Rating : Subject
         // add admin and ratee as observers
         AdminAccount admin = AdminAccount.getInstance();
         observers = new List<Observer>() { admin, tee };
+        notifyObservers();
     }
 
     public int Id { get; set; }

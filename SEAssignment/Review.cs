@@ -20,6 +20,7 @@ public class Review : Subject
         // add admin and ratee as observers
         AdminAccount admin = AdminAccount.getInstance();
         observers = new List<Observer>() { admin, ee };
+        notifyObservers();
     }
 
     public int Id { get; set; }
