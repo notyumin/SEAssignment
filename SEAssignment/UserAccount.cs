@@ -31,7 +31,18 @@ public abstract class UserAccount : Observer
         }
     }
 
-    public int Id { get; set; }
+    public int Id
+    {
+        get
+        {
+            return id;
+        }
+        set
+        {
+            id = value;
+        }
+    }
+
     public List<Ride> RideList {
         get
         {
@@ -41,9 +52,48 @@ public abstract class UserAccount : Observer
 
     public abstract void addRide(Ride r);
 
-    public string Name { get; set; }
-    public string ContactNo { get; set; }
-    public string EmailAddr { get; set; }
-    public double Rating { get; set; }
+    public string Name {
+        get
+        {
+            return name;
+        }
+        set
+        {
+            name = value;
+        }
+    }
+
+    public string ContactNo {
+        get
+        {
+            return contactNo;
+        }
+        set
+        {
+            contactNo = value;
+        }
+    }
+
+    public string EmailAddr {
+        get
+        {
+            return emailAddr;
+        }
+        set
+        {
+            emailAddr = value;
+        }
+    }
+
+    public double Rating {
+        get
+        {
+            return rating;
+        }
+        set
+        {
+            rating = value;
+        }
+    }
 
 }

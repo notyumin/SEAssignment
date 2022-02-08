@@ -21,8 +21,26 @@ public class CustomerAccount : UserAccount
 
     }
 
-    public bool Premium { get; set; }
-    public int Points { get; set; }
+    public bool Premium {
+        get
+        {
+            return premium;
+        }
+        set
+        {
+            premium = value;
+        }
+    }
+    public int Points {
+        get
+        {
+            return points;
+        }
+        set
+        {
+            points = value;
+        }
+    }
 
     public void makeBooking()
     {
