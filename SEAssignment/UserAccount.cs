@@ -58,7 +58,6 @@ public abstract class UserAccount : Observer
         if (!ratingList.Contains(r))
         {
             ratingList.Add(r);
-            r.Ratee = this;
         }
     }
 
