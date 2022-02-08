@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class Ride : Subject
 {
 	private int refNo;
-	private decimal fare;
+	private double fare;
 	private string pickUpPoint;
 	private string destination;
 	private DateTime startTime;
@@ -22,7 +22,7 @@ public class Ride : Subject
 	private RideState rideStartedState;
 	private RideState rideDoneState;
 
-	private RideState state;
+	private RideState rideCurrState;
 
 	private List<Observer> observers; // user accounts
 
@@ -31,6 +31,7 @@ public class Ride : Subject
 		pickUpPoint = departing;
 		destination = dropOffPoint;
 		startTime = start;
+
 		customer = cust;
 		customer.addRide(this);
 		// auto increment ref no
@@ -43,10 +44,11 @@ public class Ride : Subject
 		rideStartedState = new RideStartedState(this, "Ride Started");
 		rideDoneState = new RideDoneState(this, "Ride Done");
 
-		setState(rideRequestedState);
 
 		observers = new List<Observer>();
+
 		registerObserver(customer);
+		setState(rideRequestedState);
 
 		receipt = new Receipt(this);
 
@@ -57,9 +59,8 @@ public class Ride : Subject
 
     public void setState(RideState s)
 	{
+		rideCurrState = s;
 		notifyObservers();
-		state = s;
-
 	}
 
 	public void registerObserver(Observer o)
@@ -75,8 +76,12 @@ public class Ride : Subject
 	public void notifyObservers()
 	{
 		foreach (Observer o in observers)
+		{
 			o.update(this);
+			
+		}
 	}
+
 	public void calculateFare()
 	{
 		// implementation for fare calculation
@@ -89,22 +94,30 @@ public class Ride : Subject
 
 	public void cancelRide()
     {
-		state.cancelRide();
+		rideCurrState.cancelRide();
 	}
 
 	public int RefNo { get; set; }
-	public decimal Fare { get; set; }
+	public double Fare { get; set; }
 	public string PickUpPoint { get; set; }
 	public string Destination { get; set; }
-	public DateTime StartTime { get; set; }
+	public DateTime StartTime {
+		get
+		{
+			return startTime;
+		}
+		set
+		{
+			startTime = value;
+		}
+	}
 	public DateTime EndTime { get; set; }
 
-	public DriverAccount Driver { 
+	public DriverAccount Driver {
 		get
         {
 			return driver;
         }
-		
 		set {
 			if (driver != value) {
 				driver = value;
@@ -113,17 +126,84 @@ public class Ride : Subject
 		} 
 	}
 
-	public CustomerAccount Customer { get; }
+	public CustomerAccount Customer {
+		get
+		{
+			return customer;
+		}
+	}
 
-	public RideState State { get; set; }
-	public Receipt Receipt { get; }
+	public RideState RideCurrState { get
+		{
+			return rideCurrState;
+		}
+		set
+		{
+			rideCurrState = value;
+		}
 
-	public RideState RideRequestedState { get;}
-	public RideState DriverAssignedState { get;}
-	public RideState CustomerCancelledState { get;}
-	public RideState CustomerWaitingState { get;}
-	public RideState DriverArrivedState { get;}
-	public RideState RideStartedState { get;}
-	public RideState RideDoneState { get;}
+	}
 
+	public Receipt Receipt {
+		get
+		{
+			return receipt;
+		}
+	}
+
+	public RideState RideRequestedState
+	{
+		get
+		{
+			return rideRequestedState;
+		}
+	}
+
+	public RideState DriverAssignedState
+	{
+		get
+		{
+			return driverAssignedState;
+		}
+	}
+
+	public RideState CustomerCancelledState
+	{
+		get
+		{
+			return customerCancelledState;
+		}
+	}
+
+	public RideState CustomerWaitingState
+	{
+		get
+		{
+			return customerWaitingState;
+		}
+	}
+
+	public RideState DriverArrivedState
+	{
+		get
+		{
+			return driverArrivedState;
+		}
+	}
+
+	public RideState RideStartedState
+	{
+		get
+		{
+			return rideStartedState;
+		}
+	}
+
+	public RideState RideDoneState
+	{
+		get
+		{
+			return rideDoneState;
+		}
+	}
 }

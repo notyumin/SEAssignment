@@ -70,5 +70,6 @@ public class DriverArrivedState : RideState
 
 		ride.Receipt.Status = "Refunded";
 		Console.WriteLine("Ride has been cancelled");
+
 	}
 }

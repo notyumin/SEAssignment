@@ -2,9 +2,9 @@
 
 public class PaymentCreditCard : Payment
 {
-	private int creditCardNo;
+	private string creditCardNo;
 
-	public PaymentCreditCard(int creditNo, Receipt r, string p, decimal a) : base(r, p, a)
+	public PaymentCreditCard(string creditNo, Receipt r, string purp, double amt) : base(r, purp, amt)
 	{
 		creditCardNo = creditNo;
 	}

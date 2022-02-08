@@ -4,15 +4,15 @@ public class GiftCard
 {
 
     private static int id;
-    private decimal amount;
+    private double amount;
 
-    public GiftCard(decimal a)
+    public GiftCard(double amt)
     {
         // auto increment id
-        amount = a;
+        amount = amt;
     }
 
     public int Id { get; set; }
-    public decimal Amount { get; set; }
+    public double Amount { get; set; }
 
 }

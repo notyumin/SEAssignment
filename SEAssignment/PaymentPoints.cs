@@ -3,7 +3,7 @@
 public class PaymentPoints : Payment
 {
 
-	public PaymentPoints(Receipt r, string p, decimal a) : base(r, p, a) { }
+	public PaymentPoints(Receipt r, string purp, double amt) : base(r, purp, amt) { }
 
 	public override void pay() { }
 

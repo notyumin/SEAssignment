@@ -16,6 +16,8 @@ public class Receipt
 		pointsEarned = 0;
 		ride = r;
 
+		paymentList = new List<Payment>();
+
 	}
 
 	int calculatePoints()
@@ -27,9 +29,19 @@ public class Receipt
 	public decimal Amount { get; set; }
 	public string Status { get; set; }
 	public int PointsEarned { get; set; }
-	public Ride Ride { get;}
+	public Ride Ride {
+		get
+		{
+			return ride;
+		}
+	}
 
-	public List<Payment> PaymentList { get; }
+	public List<Payment> PaymentList {
+		get
+		{
+			return paymentList;
+		}
+	}
 
 	public void addPayment(Payment p)
 	{
@@ -37,7 +49,6 @@ public class Receipt
 		if (!paymentList.Contains(p))
 		{
 			paymentList.Add(p);
-			p.Receipt = this;
 		}
 
 	}

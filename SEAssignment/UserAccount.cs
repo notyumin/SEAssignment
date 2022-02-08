@@ -17,6 +17,7 @@ public abstract class UserAccount : Observer
         name = username;
         contactNo = contact;
         emailAddr = email;
+        rideList = new List<Ride>();
     }
 
     public void update(Subject s)
@@ -24,13 +25,20 @@ public abstract class UserAccount : Observer
         if (s is Ride)
         {
             Ride ride = (Ride) s;
+
             // Implementation of phone notification system
-            Console.WriteLine(name + "'s ride has updated it's status to: " + ride.State.Name);
+            Console.WriteLine(name + "'s ride has updated it's status to: " + ride.RideCurrState.RideStateName);
         }
     }
 
     public int Id { get; set; }
-    public List<Ride> RideList { get; }
+    public List<Ride> RideList {
+        get
+        {
+            return rideList;
+        }
+    }
+
     public abstract void addRide(Ride r);
 
     public string Name { get; set; }
