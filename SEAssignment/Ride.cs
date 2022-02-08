@@ -97,10 +97,51 @@ public class Ride : Subject
 		rideCurrState.cancelRide();
 	}
 
-	public int RefNo { get; set; }
-	public double Fare { get; set; }
-	public string PickUpPoint { get; set; }
-	public string Destination { get; set; }
+	public int RefNo {
+		get
+		{
+			return refNo;
+		}
+		set
+		{
+			refNo = value;
+		}
+	}
+
+	public double Fare {
+		get
+		{
+			return fare;
+		}
+		set
+		{
+			fare = value;
+		}
+	}
+
+	public string PickUpPoint {
+		get
+		{
+			return pickUpPoint;
+		}
+		set
+		{
+			pickUpPoint = value;
+		}
+	}
+
+	public string Destination {
+		get
+		{
+			return destination;
+		}
+		set
+		{
+			destination = value;
+		}
+
+	}
+
 	public DateTime StartTime {
 		get
 		{
@@ -111,7 +152,18 @@ public class Ride : Subject
 			startTime = value;
 		}
 	}
-	public DateTime EndTime { get; set; }
+
+	public DateTime EndTime {
+		get
+		{
+			return endTime;
+		}
+		set
+		{
+			endTime = value;
+		}
+
+	}
 
 	public DriverAccount Driver {
 		get

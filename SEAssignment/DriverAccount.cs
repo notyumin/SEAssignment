@@ -37,10 +37,38 @@ public class DriverAccount : UserAccount
         }
     }
 
-    public string BankAccNo { get; set; }
-    public string BankName { get; set; }
+    public string BankAccNo {
+        get
+        {
+            return bankAccNo;
+        }
+        set
+        {
+            bankAccNo = value;
+        }
+    }
 
-    public double Amount { get; set; }
+    public string BankName {
+        get
+        {
+            return bankName;
+        }
+        set
+        {
+            bankName = value;
+        }
+    }
+
+    public double Amount {
+        get
+        {
+            return amount;
+        }
+        set
+        {
+            amount = value;
+        }
+    }
 
     public Vehicle Vehicle
     {

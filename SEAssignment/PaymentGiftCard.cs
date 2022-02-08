@@ -17,5 +17,14 @@ public class PaymentGiftCard : Payment
 		}
 	}
 
-	public GiftCard Giftcard { get; set; }
+	public GiftCard GiftCard {
+		get
+		{
+			return giftCard;
+		}
+		set
+		{
+			giftCard = value;
+		}
+	}
 }
