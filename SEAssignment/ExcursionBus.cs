@@ -2,14 +2,22 @@
 
 public class ExcursionBus: Vehicle
 {
-    private decimal deposit;
+    private double deposit;
 
-    public ExcursionBus(decimal depo, string plateNo, string vehBrand, string vehModel): base(plateNo, vehBrand, vehModel)
+    public ExcursionBus(double depo, string plateNo, string vehBrand, string vehModel): base(plateNo, vehBrand, vehModel)
     {
         deposit = depo;
     }
 
-    public decimal Deposit { get; set; }
-    public decimal BookingFee { get; set; }
+    public double Deposit {
+        get
+        {
+            return deposit;
+        }
+        set
+        {
+            deposit = value;
+        }
+    }
 
 }
