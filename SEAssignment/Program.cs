@@ -14,9 +14,12 @@ namespace SEAssignment
 
             CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
-            Ride ride = new Ride("390392", "490290", DateTime.Now, customer);
-
+            customer.makeBooking();
+            Ride ride = customer.RideList[0];
             Receipt receipt = ride.Receipt;
+
+            //Ride ride = new Ride("390392", "490290", DateTime.Now, customer);
+            //Receipt receipt = ride.Receipt;
 
             PaymentPoints payPoint = new PaymentPoints(receipt, "Booking Fee", 20);
             PaymentCreditCard payCC = new PaymentCreditCard("9403-9030-0943", receipt, "Booking Fee", 300.45);
