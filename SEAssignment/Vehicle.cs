@@ -14,7 +14,36 @@ public class Vehicle
         model = vehModel;
     }
 
-    public string LicencePlateNo { get; set; }
-    public string Brand { get; set; }
-    public string Model { get; set; }
+    public string LicencePlateNo {
+        get
+        {
+            return licencePlateNo;
+        }
+        set
+        {
+            licencePlateNo = value;
+        }
+    }
+    public string Brand {
+        get
+        {
+            return brand;
+        }
+        set
+        {
+            brand = value;
+        }
+    }
+
+    public string Model
+    {
+        get
+        {
+            return model;
+        }
+        set
+        {
+            model = value;
+        }
+    }
 }

@@ -22,9 +22,41 @@ public abstract class  Payment
 	public abstract void pay();
 	public abstract void refund();
 
-    public string Purpose { get; set; }
-	public double Amount { get; set; }
-	public string Status { get; set; }
+    public string Purpose {
+		get
+		{
+			return purpose;
+		}
+		set
+		{
+			purpose = value;
+		}
+	}
+
+	public double Amount
+	{
+		get
+		{
+			return amount;
+		}
+		set
+		{
+			amount = value;
+		}
+	}
+
+	public string Status
+	{
+		get
+		{
+			return status;
+		}
+		set
+		{
+			status = value;
+		}
+	}
+
 	public Receipt Receipt
 	{
 		get

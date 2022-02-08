@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Receipt
 {
-	private decimal amount;
+	private double amount;
 	private string status; // "Refunded", "Paid", "Unpaid"
 	private int pointsEarned;
 	private Ride ride;
@@ -26,9 +26,41 @@ public class Receipt
 		return pointsEarned; // when printing receipt after completed ride, add points to user 
 	}
 
-	public decimal Amount { get; set; }
-	public string Status { get; set; }
-	public int PointsEarned { get; set; }
+	public double Amount
+	{
+		get
+		{
+			return amount;
+		}
+		set
+		{
+			amount = value;
+		}
+	}
+
+	public string Status
+	{
+		get
+		{
+			return status;
+		}
+		set
+		{
+			status = value;
+		}
+	}
+
+	public int PointsEarned {
+		get
+		{
+			return pointsEarned;
+		}
+		set
+		{
+			pointsEarned = value;
+		}
+	}
+
 	public Ride Ride {
 		get
 		{

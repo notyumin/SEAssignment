@@ -3,8 +3,8 @@
 public abstract class RideState
 {
 
-	protected Ride ride;
-	protected string rideStateName;
+    protected Ride ride;
+    protected string rideStateName;
 
     public RideState(Ride r, string n)
     {
@@ -12,16 +12,22 @@ public abstract class RideState
         rideStateName = n;
     }
 
-	public abstract void cancelRide();
-	
-	public Ride Ride { 
-        get {
+    public abstract void cancelRide();
+    public abstract void rateDriver();
+    public abstract void rateCustomer();
+
+    public Ride Ride
+    {
+        get
+        {
             return ride;
         }
     }
 
-    public string RideStateName { 
-        get {
+    public string RideStateName
+    {
+        get
+        {
             return rideStateName;
         }
     }

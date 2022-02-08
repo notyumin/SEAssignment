@@ -12,7 +12,25 @@ public class GiftCard
         amount = amt;
     }
 
-    public int Id { get; set; }
-    public double Amount { get; set; }
+    public int Id {
+        get
+        {
+            return id;
+        }
+        set
+        {
+            id = value;
+        }
+    }
+    public double Amount {
+        get
+        {
+            return amount;
+        }
+        set
+        {
+            amount = value;
+        }
+    }
 
 }

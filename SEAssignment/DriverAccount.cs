@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class DriverAccount : UserAccount
 {
@@ -8,11 +9,14 @@ public class DriverAccount : UserAccount
     private double amount;
     private Vehicle vehicle;
 
+    private List<Review> reviewList;
+
     public DriverAccount(string bankNo, string bankNa, string username, string contact, string email) : base(username, contact, email)
     {
         bankAccNo = bankNo;
         bankName = bankNa;
         amount = 0;
+        reviewList = new List<Review>();
     }
 
     public override void addRide(Ride r)
@@ -22,13 +26,48 @@ public class DriverAccount : UserAccount
             rideList.Add(r);
             r.Driver = this;
         }
-
     }
 
-    public string BankAccNo { get; set; }
-    public string BankName { get; set; }
+    public void addReview(Review r)
+    {
+        if (!reviewList.Contains(r))
+        {
+            reviewList.Add(r);
+        }
+    }
 
-    public double Amount { get; set; }
+    public string BankAccNo {
+        get
+        {
+            return bankAccNo;
+        }
+        set
+        {
+            bankAccNo = value;
+        }
+    }
+
+    public string BankName {
+        get
+        {
+            return bankName;
+        }
+        set
+        {
+            bankName = value;
+        }
+    }
+
+    public double Amount {
+        get
+        {
+            return amount;
+        }
+        set
+        {
+            amount = value;
+        }
+    }
 
     public Vehicle Vehicle
     {

@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 
-public class Rating
+public class Rating : Subject
 {
 
     private static int id;
@@ -8,17 +9,69 @@ public class Rating
     private UserAccount rater;
     private UserAccount ratee;
 
-    Rating(int r, UserAccount ter, UserAccount tee)
+    private List<Observer> observers;
+
+    public Rating(int r, UserAccount ter, UserAccount tee)
     {
         // auto increment id
         stars = r;
         rater = ter;
         ratee = tee;
+        tee.addRating(this);
+
+        // add admin and ratee as observers
+        AdminAccount admin = AdminAccount.getInstance();
+        observers = new List<Observer>() { admin, tee };
+        notifyObservers();
     }
 
-    public int Id { get; set; }
-    public int Stars { get; set; }
-    public UserAccount Rater { get; set; }
-    public UserAccount Ratee { get; set; }
+    public int Id {
+        get
+        {
+            return id;
+        }
+        set
+        {
+            id = value;
+        }
+    }
+    public int Stars {
+        get
+        {
+            return stars;
+        }
+        set
+        {
+            stars = value;
+        }
+    }
+    public UserAccount Rater {
+        get
+        {
+            return rater;
+        }
+    }
 
+    public UserAccount Ratee
+    {
+        get { return ratee; }
+    }
+
+    public void registerObserver(Observer o)
+    {
+        observers.Add(o);
+    }
+
+    public void removeObserver(Observer o)
+    {
+        observers.Remove(o);
+    }
+
+    public void notifyObservers()
+    {
+        foreach (Observer o in observers)
+        {
+            o.update(this);
+        }
+    }
 }

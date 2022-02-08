@@ -19,5 +19,15 @@ public class PaymentCreditCard : Payment
 		}
 	}
 
-	public int CreditCardNo { get; set; }
+	public string CreditCardNo
+	{
+		get
+		{
+			return creditCardNo;
+		}
+		set
+		{
+			creditCardNo = value;
+		}
+	}
 }

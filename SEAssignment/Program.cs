@@ -14,16 +14,28 @@ namespace SEAssignment
 
             CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
-            Ride ride = new Ride("390392", "490290", DateTime.Now, customer);
-
+            customer.makeBooking();
+            Ride ride = customer.RideList[0];
             Receipt receipt = ride.Receipt;
+
+            //Ride ride = new Ride("390392", "490290", DateTime.Now, customer);
+            //Receipt receipt = ride.Receipt;
+
             PaymentPoints payPoint = new PaymentPoints(receipt, "Booking Fee", 20);
             PaymentCreditCard payCC = new PaymentCreditCard("9403-9030-0943", receipt, "Booking Fee", 300.45);
             PaymentCreditCard payCC2 = new PaymentCreditCard("9403-9030-0943", receipt, "Deposit", 300.45);
+
+            ride.rateCustomer();
+            ride.rateDriver();
             ride.cancelRide();
 
             ride.setState(ride.RideDoneState);
+
+            ride.rateCustomer();
+            ride.rateDriver();
             ride.cancelRide();
+
+            Console.WriteLine(payPoint.Status);
 
             ride.Driver = driver;
             ride.registerObserver(driver);
@@ -31,6 +43,8 @@ namespace SEAssignment
             ride.setState(ride.DriverAssignedState);
             ride.cancelRide();
 
+            Console.WriteLine(payPoint.Status);
+            Console.WriteLine(customer.Points);
         }
     }
 }
