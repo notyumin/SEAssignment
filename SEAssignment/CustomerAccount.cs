@@ -51,7 +51,12 @@ public class CustomerAccount : UserAccount
         Console.WriteLine("What is your drop off point postal code: ");
         string dropoffpoint = Console.ReadLine();
 
-        Ride ride = new Ride(pickuppoint, dropoffpoint, DateTime.Now, this);
+        Console.WriteLine("When do you want to schedule your ride(format in example {Feb 14, 2022} ):");
+        string dateInput = Console.ReadLine();
+        var parsedDate = DateTime.Parse(dateInput);
+        Console.WriteLine(parsedDate);
+
+        Ride ride = new Ride(pickuppoint, dropoffpoint, parsedDate, this);
         
     }
 }
