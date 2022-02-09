@@ -4,6 +4,11 @@ public class DriverArrivedState : RideState
 {
     public DriverArrivedState(Ride r, string n) : base(r, n) { }
 
+    public override void acceptRide()
+    {
+        Console.WriteLine("Driver has already accepted the booking and has arrived at the pick up destination.");
+    }
+
     public override void cancelRide()
     {
         Vehicle vehicle = ride.Driver.Vehicle;

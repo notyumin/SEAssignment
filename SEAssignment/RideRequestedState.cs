@@ -5,6 +5,35 @@ public class RideRequestedState : RideState
 
     public RideRequestedState(Ride r, string n) : base(r, n) { }
 
+    public override void acceptRide()
+    {
+		string option = "N";
+		
+		while (option != "Y")
+        {
+			Console.WriteLine("Do you want to accept the customer's booking? (Y/N):");
+			option = Console.ReadLine();
+
+			switch (option)
+            {
+				case "Y":
+
+					break;
+
+				case "N":
+
+					return;
+
+				default:
+					Console.WriteLine("Please enter either Y or N.");
+					Console.WriteLine("");
+					break;
+            }
+        }
+
+		ride.setState(ride.DriverAssignedState);
+    }
+
     public override void cancelRide()
     {
 

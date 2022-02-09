@@ -4,6 +4,11 @@ public class CustomerWaitingState : RideState
 {
     public CustomerWaitingState(Ride r, string n) : base(r, n) { }
 
+    public override void acceptRide()
+    {
+        Console.WriteLine("Currently waiting for a driver to accept your booking.");
+    }
+
     public override void cancelRide()
     {
         Vehicle vehicle = ride.Driver.Vehicle;

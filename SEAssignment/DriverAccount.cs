@@ -82,4 +82,20 @@ public class DriverAccount : UserAccount
         }
 
     }
+
+    public void AcceptBooking()
+    {
+        Console.WriteLine("Do you accept the booking? (Y/N):");
+        string status = Console.ReadLine();
+
+        if (status == "Y")
+        {
+            Console.WriteLine("Booking has been accepted. Please proceed to pick up the customer.");
+        }
+
+        if (status == "N")
+        {
+            Console.WriteLine("Booking has been rejected.");
+        }
+    }
 }
