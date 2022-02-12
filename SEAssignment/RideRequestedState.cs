@@ -7,6 +7,7 @@ public class RideRequestedState : RideState
 
     public override void acceptRide()
     {
+        //TODO (WH)
 		string option = "N";
 		
 		while (option != "Y")
@@ -61,6 +62,11 @@ public class RideRequestedState : RideState
         }
 
         ride.setState(ride.CustomerCancelledState); // observer pattern
+
+        // implement email receipt system
+
+        ride.Receipt.Status = "Refunded";
+        Console.WriteLine("Ride has been cancelled");
     }
 
     public override void rateCustomer()

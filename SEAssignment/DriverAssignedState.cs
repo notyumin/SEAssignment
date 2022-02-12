@@ -7,7 +7,7 @@ public class DriverAssignedState : RideState
 
     public override void acceptRide()
     {
-        //implementation here
+        Console.WriteLine("A driver has already accepted this ride.");
     }
 
     public override void cancelRide()
@@ -71,6 +71,10 @@ public class DriverAssignedState : RideState
             {
                 payment.refund();
                 payment.Status = "Refunded";
+            } 
+            else if (payment.Purpose == "Deposit Fee" && depositRefund == false)
+            {
+                payment.payDriver();
             }
         }
 
