@@ -103,8 +103,24 @@ namespace SEAssignment
 
         static void RegisterDriver()
         {
-            Console.WriteLine("Register Driver\n");
-            //implementation here
+            Console.WriteLine("What is your bank account number: ");
+            string bankNo = Console.ReadLine();
+
+            Console.WriteLine("What is the name of the bank you are associated with:");
+            string bankNa = Console.ReadLine();
+
+            Console.WriteLine("What is your username: ");
+            string username = Console.ReadLine();
+
+            Console.WriteLine("What is your contact number: ");
+            string contact = Console.ReadLine();
+
+            Console.WriteLine("What is your email address: ");
+            string email = Console.ReadLine();
+
+            DriverAccount driver = new DriverAccount(bankNo, bankNa, username, contact, email);
+
+            driver.RegisterVehicle();
         }
 
         static void MakeBooking()
@@ -115,6 +131,8 @@ namespace SEAssignment
 
         static void AcceptBooking()
         {
+            DriverAccount 
+
             Console.WriteLine("Accept Booking\n");
             //implementation here
         }

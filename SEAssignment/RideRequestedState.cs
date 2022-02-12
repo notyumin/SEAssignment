@@ -7,6 +7,7 @@ public class RideRequestedState : RideState
 
     public override void acceptRide()
     {
+        //TODO (WH)
 		string option = "N";
 		
 		while (option != "Y")

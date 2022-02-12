@@ -91,6 +91,11 @@ public class Ride : Subject
         // implementation for end time calculation
     }
 
+    public void acceptRide()
+    {
+        rideCurrState.acceptRide();
+    }
+
     public void cancelRide()
     {
         rideCurrState.cancelRide();

@@ -83,24 +83,18 @@ public class DriverAccount : UserAccount
 
     }
 
-    public void registerDriver()
+    public void RegisterVehicle()
     {
-        Console.WriteLine("What is your bank account number: ");
-        string bankNo = Console.ReadLine();
+        Console.WriteLine("Enter vehicle model (Car, Van, Excursion Bus):  ");
+        string model = Console.ReadLine();
 
-        Console.WriteLine("What is the name of the bank you are associated with:");
-        string bankNa = Console.ReadLine();
+        Console.WriteLine("Enter vehicle brand:  ");
+        string brand = Console.ReadLine();
 
-        Console.WriteLine("What is your username: ");
-        string username = Console.ReadLine();
+        Console.WriteLine("Enter license plate number:  ");
+        string plateNo = Console.ReadLine();
 
-        Console.WriteLine("What is your contact number: ");
-        string contact = Console.ReadLine();
-
-        Console.WriteLine("What is your email address: ");
-        string email = Console.ReadLine();
-
-        DriverAccount driver = new DriverAccount(bankNo, bankNa, username, contact, email);
+        Vehicle vehicle = new Vehicle(plateNo, brand, model);
     }
 
     public void AcceptBooking()
