@@ -61,6 +61,11 @@ public class RideRequestedState : RideState
         }
 
         ride.setState(ride.CustomerCancelledState); // observer pattern
+
+        // implement email receipt system
+
+        ride.Receipt.Status = "Refunded";
+        Console.WriteLine("Ride has been cancelled");
     }
 
     public override void rateCustomer()
