@@ -10,6 +10,11 @@ public class PaymentGiftCard : Payment
 
 	public override void pay() { }
 
+	public override void payDriver()
+	{
+		receipt.Ride.Driver.Amount += Math.Round(amount * 0.9,2); // assuming pickUpNow takes 10%
+	}
+
 	public override void refund() {
 		if (receipt.Status != "Refunded")
 		{
