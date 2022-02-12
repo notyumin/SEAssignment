@@ -83,6 +83,26 @@ public class DriverAccount : UserAccount
 
     }
 
+    public void registerDriver()
+    {
+        Console.WriteLine("What is your bank account number: ");
+        string bankNo = Console.ReadLine();
+
+        Console.WriteLine("What is the name of the bank you are associated with:");
+        string bankNa = Console.ReadLine();
+
+        Console.WriteLine("What is your username: ");
+        string username = Console.ReadLine();
+
+        Console.WriteLine("What is your contact number: ");
+        string contact = Console.ReadLine();
+
+        Console.WriteLine("What is your email address: ");
+        string email = Console.ReadLine();
+
+        DriverAccount driver = new DriverAccount(bankNo, bankNa, username, contact, email);
+    }
+
     public void AcceptBooking()
     {
         Console.WriteLine("Do you accept the booking? (Y/N):");

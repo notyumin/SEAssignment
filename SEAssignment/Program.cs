@@ -77,6 +77,7 @@ namespace SEAssignment
                         RegisterDriver();
                         break;
                     case "2":
+                        Console.WriteLine("Make Booking\n");
                         MakeBooking();
                         break;
                     case "3":
