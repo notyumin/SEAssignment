@@ -6,49 +6,51 @@ namespace SEAssignment
     {
         static void Main(string[] args)
         {
-            //Setup Preconditions
+            /* //Setup Preconditions
             DriverAccount driver = new DriverAccount("3000-3000-2000-4000", "Maybank", "Driver", "#65-93031902", "driver@gmail.com");
             CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
-            Menu();
-            /*  // Cancel Booking Stuff
-             DriverAccount driver = new DriverAccount("3000-3000-2000-4000", "Maybank", "Driver", "#65-93031902", "driver@gmail.com");
-             Van van = new Van(50.30, 5.3, "Lalaland", "Mercedes?", "SIQOWE-2903");
-             driver.Vehicle = van;
+            Menu(); */
+            // Cancel Booking Stuff
+            DriverAccount driver = new DriverAccount("3000-3000-2000-4000", "Maybank", "Driver", "#65-93031902", "driver@gmail.com");
+            Van van = new Van(50.30, 5.3, "Lalaland", "Mercedes?", "SIQOWE-2903");
+            driver.Vehicle = van;
 
-             CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
+            CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
-             customer.makeBooking();
-             Ride ride = customer.RideList[0];
-             Receipt receipt = ride.Receipt;
+            customer.makeBooking();
+            Ride ride = customer.RideList[0];
+            Receipt receipt = ride.Receipt;
+            //manually assign driver
+            ride.Driver = driver;
 
-             //Ride ride = new Ride("390392", "490290", DateTime.Now, customer);
-             //Receipt receipt = ride.Receipt;
+            //Ride ride = new Ride("390392", "490290", DateTime.Now, customer);
+            //Receipt receipt = ride.Receipt;
 
-             PaymentPoints payPoint = new PaymentPoints(receipt, "Booking Fee", 20);
-             PaymentCreditCard payCC = new PaymentCreditCard("9403-9030-0943", receipt, "Booking Fee", 300.45);
-             PaymentCreditCard payCC2 = new PaymentCreditCard("9403-9030-0943", receipt, "Deposit", 300.45);
+            PaymentPoints payPoint = new PaymentPoints(receipt, "Booking Fee", 20);
+            PaymentCreditCard payCC = new PaymentCreditCard("9403-9030-0943", receipt, "Booking Fee", 300.45);
+            PaymentCreditCard payCC2 = new PaymentCreditCard("9403-9030-0943", receipt, "Deposit", 300.45);
 
-             ride.rateCustomer();
-             ride.rateDriver();
-             ride.cancelRide();
+            ride.rateCustomer();
+            ride.rateDriver();
+            ride.cancelRide();
 
-             ride.setState(ride.RideDoneState);
+            ride.setState(ride.RideDoneState);
 
-             ride.rateCustomer();
-             ride.rateDriver();
-             ride.cancelRide();
+            ride.rateCustomer();
+            ride.rateDriver();
+            ride.cancelRide();
 
-             Console.WriteLine(payPoint.Status);
+            Console.WriteLine(payPoint.Status);
 
-             ride.Driver = driver;
-             ride.registerObserver(driver);
+            ride.Driver = driver;
+            ride.registerObserver(driver);
 
-             ride.setState(ride.DriverAssignedState);
-             ride.cancelRide();
+            ride.setState(ride.DriverAssignedState);
+            ride.cancelRide();
 
-             Console.WriteLine(payPoint.Status);
-             Console.WriteLine(customer.Points); */
+            Console.WriteLine(payPoint.Status);
+            Console.WriteLine(customer.Points);
         }
 
         static void Menu()
@@ -62,6 +64,7 @@ namespace SEAssignment
                     "[3] Accept Booking (Driver)\n" +
                     "[4] Cancel Booking (Customer)\n" +
                     "[5] Make Payment (Customer)\n" +
+                    "[6] Rating\n" +
                     "[0] Exit\n" +
                     "[x] Testing Menu\n"
                 );
@@ -105,22 +108,8 @@ namespace SEAssignment
 
         static void MakeBooking()
         {
-            Console.WriteLine("Make Booking\n");
-            //implementation here
-
-            Console.WriteLine("What is your pick up point postal code: ");
-            string pickuppoint = Console.ReadLine();
-
-            Console.WriteLine("What is your drop off point postal code: ");
-            string dropoffpoint = Console.ReadLine();
-
-            Console.WriteLine("When do you want to schedule your ride(format in example {Feb 14, 2022} ):");
-            string dateInput = Console.ReadLine();
-            var parsedDate = DateTime.Parse(dateInput);
-            Console.WriteLine(parsedDate);
-
-            Ride ride = new Ride(pickuppoint, dropoffpoint, parsedDate);
-            Console.WriteLine("Searching for driver ................\n");
+            CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
+            customer.makeBooking();
         }
 
         static void AcceptBooking()

@@ -24,16 +24,16 @@ class AdminAccount : Observer
         {
             Rating rating = (Rating)s;
             //Implementation of Administrator update
-            Console.WriteLine($"Admin Notification: {rating.Ratee} has received " +
-                $"a {rating.Stars}-star rating from {rating.Rater}");
+            Console.WriteLine($"Admin Notification: {rating.Ratee.Name} has received " +
+                $"a {rating.Stars}-star rating from {rating.Rater.Name}");
         }
 
         if (s is Review)
         {
             Review review = (Review)s;
             //Implementation of Administrator update
-            Console.WriteLine($"Admin Notification: {review.Reviewee} has " +
-                $"received the following review from {review.Reviewer}: {review.Description}");
+            Console.WriteLine($"Admin Notification: {review.Reviewee.Name} has " +
+                $"received the following review from {review.Reviewer.Name}: {review.Description}");
         }
     }
 }
