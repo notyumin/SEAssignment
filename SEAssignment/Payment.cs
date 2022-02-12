@@ -20,6 +20,8 @@ public abstract class  Payment
     }
 
 	public abstract void pay();
+
+	public abstract void payDriver();
 	public abstract void refund();
 
     public string Purpose {

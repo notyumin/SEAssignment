@@ -71,6 +71,10 @@ public class DriverAssignedState : RideState
             {
                 payment.refund();
                 payment.Status = "Refunded";
+            } 
+            else if (payment.Purpose == "Deposit Fee" && depositRefund == false)
+            {
+                payment.payDriver();
             }
         }
 
