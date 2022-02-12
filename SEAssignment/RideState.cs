@@ -12,6 +12,7 @@ public abstract class RideState
         rideStateName = n;
     }
 
+    public abstract void acceptRide();
     public abstract void cancelRide();
     public abstract void rateDriver();
     public abstract void rateCustomer();

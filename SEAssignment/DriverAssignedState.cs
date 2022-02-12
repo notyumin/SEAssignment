@@ -5,6 +5,11 @@ public class DriverAssignedState : RideState
 
     public DriverAssignedState(Ride r, string n) : base(r, n) { }
 
+    public override void acceptRide()
+    {
+        //implementation here
+    }
+
     public override void cancelRide()
     {
         Vehicle vehicle = ride.Driver.Vehicle;
