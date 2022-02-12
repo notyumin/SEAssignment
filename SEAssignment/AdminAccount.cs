@@ -24,7 +24,7 @@ class AdminAccount : Observer
         {
             Rating rating = (Rating)s;
             //Implementation of Administrator update
-            Console.WriteLine($"Admin Notification: {rating.Ratee.Name} has received " +
+            Console.WriteLine($"\n[Admin Notification] {rating.Ratee.Name} has received " +
                 $"a {rating.Stars}-star rating from {rating.Rater.Name}");
         }
 
@@ -32,7 +32,7 @@ class AdminAccount : Observer
         {
             Review review = (Review)s;
             //Implementation of Administrator update
-            Console.WriteLine($"Admin Notification: {review.Reviewee.Name} has " +
+            Console.WriteLine($"\n[Admin Notification] {review.Reviewee.Name} has " +
                 $"received the following review from {review.Reviewer.Name}: {review.Description}");
         }
     }

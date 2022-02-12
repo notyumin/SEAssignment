@@ -6,13 +6,13 @@ namespace SEAssignment
     {
         static void Main(string[] args)
         {
-            /* //Setup Preconditions
+            //Setup Preconditions
             DriverAccount driver = new DriverAccount("3000-3000-2000-4000", "Maybank", "Driver", "#65-93031902", "driver@gmail.com");
             CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
-            Menu(); */
+            Menu();
             // Cancel Booking Stuff
-            DriverAccount driver = new DriverAccount("3000-3000-2000-4000", "Maybank", "Driver", "#65-93031902", "driver@gmail.com");
+            /* DriverAccount driver = new DriverAccount("3000-3000-2000-4000", "Maybank", "Driver", "#65-93031902", "driver@gmail.com");
             Van van = new Van(50.30, 5.3, "Lalaland", "Mercedes?", "SIQOWE-2903");
             driver.Vehicle = van;
 
@@ -50,7 +50,7 @@ namespace SEAssignment
             ride.cancelRide();
 
             Console.WriteLine(payPoint.Status);
-            Console.WriteLine(customer.Points);
+            Console.WriteLine(customer.Points); */
         }
 
         static void Menu()
@@ -64,7 +64,7 @@ namespace SEAssignment
                     "[3] Accept Booking (Driver)\n" +
                     "[4] Cancel Booking (Customer)\n" +
                     "[5] Make Payment (Customer)\n" +
-                    "[6] Rating\n" +
+                    "[6] Rate Customer/Driver\n" +
                     "[0] Exit\n" +
                     "[x] Testing Menu\n"
                 );
@@ -87,6 +87,9 @@ namespace SEAssignment
                         break;
                     case "5":
                         MakePayment();
+                        break;
+                    case "6":
+                        RateAndReview();
                         break;
                     case "x":
                         TestingMenu();
@@ -128,6 +131,40 @@ namespace SEAssignment
         {
             Console.WriteLine("Make Payment\n");
             //implementation here
+        }
+
+        static void RateAndReview()
+        {
+            Console.WriteLine("Use Case: Rate and Review\n");
+
+            Console.WriteLine("Initialising pre-conditions...");
+            //Create Customer
+            CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
+            Console.WriteLine("[Initialising...] Customer Account Created");
+            //Create Driver
+            DriverAccount driver = new DriverAccount("3000-3000-2000-4000", "Maybank", "Driver", "#65-93031902", "driver@gmail.com");
+            Console.WriteLine("[Initialising...] Driver Account Created");
+
+            Console.WriteLine("[Initialising...] Customer Making Booking");
+            customer.makeBooking();
+            Ride ride = customer.RideList[0];
+            Console.WriteLine("[Initialising...] Ride Created");
+
+            ride.Driver = driver;
+            Console.WriteLine("[Initialising...] Driver Assigned to Ride");
+
+            Console.WriteLine("\nRunning Use Case...");
+
+            Console.WriteLine("\n[Use Case] Try to rate before ride is done");
+            ride.rateCustomer(); //Ride is not completed. You may not leave a review yet.
+            ride.rateDriver(); //Ride is not completed. You may not leave a review yet.
+
+            Console.WriteLine("\n[Configuring...] Set ride to done");
+            ride.setState(ride.RideDoneState);
+
+            Console.WriteLine("\n[Use Case] Try to rate after ride is done");
+            ride.rateCustomer();
+            ride.rateDriver();
         }
 
         static void TestingMenu()
