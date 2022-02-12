@@ -69,7 +69,7 @@ public abstract class UserAccount : Observer
             totalStars += rating.Stars;
         }
 
-        double averageStars = totalStars / ratingList.Count;
+        double averageStars = (double)totalStars / ratingList.Count;
         rating = averageStars;
     }
 
