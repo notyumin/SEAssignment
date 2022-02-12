@@ -25,7 +25,8 @@ public class Rating : Subject
         notifyObservers();
     }
 
-    public int Id {
+    public int Id
+    {
         get
         {
             return id;
@@ -35,7 +36,8 @@ public class Rating : Subject
             id = value;
         }
     }
-    public int Stars {
+    public int Stars
+    {
         get
         {
             return stars;
@@ -45,7 +47,8 @@ public class Rating : Subject
             stars = value;
         }
     }
-    public UserAccount Rater {
+    public UserAccount Rater
+    {
         get
         {
             return rater;

@@ -104,7 +104,7 @@ public class Ride : Subject
 
     public void rateDriver()
     {
-        rideCurrState.rateCustomer();
+        rideCurrState.rateDriver();
     }
 
     public int RefNo
