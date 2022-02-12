@@ -44,7 +44,7 @@ public class CustomerAccount : UserAccount
         }
     }
 
-    public void makeBooking()
+    public Ride makeBooking()
     {
         //implementation here
 
@@ -60,6 +60,7 @@ public class CustomerAccount : UserAccount
         Console.WriteLine(parsedDate);
 
         Ride ride = new Ride(pickuppoint, dropoffpoint, parsedDate, this);
-        Console.WriteLine("Searching for driver ................\n");
+
+        return ride;
     }
 }

@@ -77,7 +77,6 @@ namespace SEAssignment
                         RegisterDriver();
                         break;
                     case "2":
-                        Console.WriteLine("Make Booking\n");
                         MakeBooking();
                         break;
                     case "3":
@@ -109,8 +108,12 @@ namespace SEAssignment
 
         static void MakeBooking()
         {
+
             CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
+            Console.WriteLine("Make Booking\n");
             customer.makeBooking();
+
+            Console.WriteLine("Searching for driver ................\n");
         }
 
         static void AcceptBooking()
@@ -128,9 +131,8 @@ namespace SEAssignment
 
             Console.WriteLine("Set start date to be 3 days beyond current date to test no deposit refund");
 
-            customer.makeBooking();
+            Ride ride = customer.makeBooking();
 
-            Ride ride = customer.RideList[0];
             string input;
             bool valid;
             bool madePayment = true;
