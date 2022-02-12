@@ -25,7 +25,7 @@ class AdminAccount : Observer
             Rating rating = (Rating)s;
             //Implementation of Administrator update
             Console.WriteLine($"\n[Admin Notification] {rating.Ratee.Name} has received " +
-                $"a {rating.Stars}-star rating from {rating.Rater.Name}");
+                $"a {rating.Stars}-star rating from {rating.Rater.Name}. Their new rating is {Math.Round(rating.Ratee.Rating, 2)}.");
         }
 
         if (s is Review)

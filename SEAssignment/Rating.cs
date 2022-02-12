@@ -21,7 +21,7 @@ public class Rating : Subject
 
         // add admin and ratee as observers
         AdminAccount admin = AdminAccount.getInstance();
-        observers = new List<Observer>() { admin, tee };
+        observers = new List<Observer>() { tee, admin };
         notifyObservers();
     }
 

@@ -388,6 +388,12 @@ namespace SEAssignment
             DriverAccount driver = new DriverAccount("3000-3000-2000-4000", "Maybank", "Driver", "#65-93031902", "driver@gmail.com");
             Console.WriteLine("[Initialising...] Driver Account Created");
 
+            Console.WriteLine("[Initializing...] Add a few ratings to customer/driver");
+            new Rating(4, customer, driver);
+            new Rating(3, customer, driver);
+            new Rating(2, driver, customer);
+            new Rating(3, driver, customer);
+
             Console.WriteLine("[Initialising...] Customer Making Booking");
             customer.makeBooking();
             Ride ride = customer.RideList[0];

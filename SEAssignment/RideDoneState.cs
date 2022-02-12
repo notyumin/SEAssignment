@@ -24,7 +24,7 @@ public class RideDoneState : RideState
 
         Rating rating = new Rating(stars, ride.Customer, ride.Driver);
 
-        Console.WriteLine("[To Customer] Leave a review below!");
+        Console.WriteLine("[To Customer] Leave a review below! (optional)");
         Console.Write("Feedback: ");
         string feedback = Console.ReadLine();
         if (feedback != "")
