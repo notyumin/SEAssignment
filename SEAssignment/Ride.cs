@@ -57,6 +57,13 @@ public class Ride : Subject
         calculateFare();
     }
 
+    public Ride(string pickuppoint, string dropoffpoint, DateTime parsedDate)
+    {
+        pickUpPoint = pickuppoint;
+        Dropoffpoint = dropoffpoint;
+        ParsedDate = parsedDate;
+    }
+
     public void setState(RideState s)
     {
         rideCurrState = s;
@@ -281,4 +288,7 @@ public class Ride : Subject
             return rideDoneState;
         }
     }
+
+    public string Dropoffpoint { get; }
+    public DateTime ParsedDate { get; }
 }

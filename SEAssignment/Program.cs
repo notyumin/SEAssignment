@@ -107,6 +107,20 @@ namespace SEAssignment
         {
             Console.WriteLine("Make Booking\n");
             //implementation here
+
+            Console.WriteLine("What is your pick up point postal code: ");
+            string pickuppoint = Console.ReadLine();
+
+            Console.WriteLine("What is your drop off point postal code: ");
+            string dropoffpoint = Console.ReadLine();
+
+            Console.WriteLine("When do you want to schedule your ride(format in example {Feb 14, 2022} ):");
+            string dateInput = Console.ReadLine();
+            var parsedDate = DateTime.Parse(dateInput);
+            Console.WriteLine(parsedDate);
+
+            Ride ride = new Ride(pickuppoint, dropoffpoint, parsedDate);
+            Console.WriteLine("Searching for driver ................\n");
         }
 
         static void AcceptBooking()
