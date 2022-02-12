@@ -66,8 +66,7 @@ namespace SEAssignment
                     "[4] Cancel Booking (Customer)\n" +
                     "[5] Make Payment (Customer)\n" +
                     "[6] Rate Customer/Driver\n" +
-                    "[0] Exit\n" +
-                    "[x] Testing Menu\n"
+                    "[0] Exit\n"
                 );
 
                 input = Console.ReadLine();
@@ -92,9 +91,6 @@ namespace SEAssignment
                         break;
                     case "6":
                         RateAndReview();
-                        break;
-                    case "x":
-                        TestingMenu();
                         break;
                     case "0":
                         break;
@@ -131,10 +127,10 @@ namespace SEAssignment
             CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
             Console.WriteLine("Set start date to be 3 days beyond current date to test no deposit refund");
-            
+
             customer.makeBooking();
 
-            Ride ride = null;
+            Ride ride = customer.RideList[0];
             string input;
             bool valid;
             bool madePayment = true;
@@ -400,6 +396,8 @@ namespace SEAssignment
             ride.Driver = driver;
             Console.WriteLine("[Initialising...] Driver Assigned to Ride");
 
+            //prompt user for state
+
             Console.WriteLine("\nRunning Use Case...");
 
             Console.WriteLine("\n[Use Case] Try to rate before ride is done");
@@ -412,57 +410,6 @@ namespace SEAssignment
             Console.WriteLine("\n[Use Case] Try to rate after ride is done");
             ride.rateCustomer();
             ride.rateDriver();
-        }
-
-        static void TestingMenu()
-        {
-            string input = "";
-            while (input != "0")
-            {
-                Console.WriteLine(
-                    "[1] Update Ride State\n" +
-                    "[0] Exit back to Main Menu\n"
-                );
-
-                input = Console.ReadLine();
-
-                switch (input)
-                {
-                    case "1":
-                        UpdateRideState();
-                        break;
-                    case "0":
-                        break;
-                    default:
-                        Console.WriteLine("Invalid input.\n");
-                        break;
-                }
-            }
-        }
-
-        static void UpdateRideState()
-        {
-            Console.WriteLine("Update Ride State\n");
-            Console.WriteLine(
-                "[1] Update to RideRequestedState\n" +
-                "[2] Update to DriverAssigneedState\n" +
-                "[3] Update to CustomerCancelledState\n" +
-                "[4] Update to CustomerWaitingState\n" +
-                "[5] Update to DriverArrivedState\n" +
-                "[6] Update to RideStartedState\n" +
-                "[7] Update to RideDoneState\n"
-            );
-
-            string input = Console.ReadLine();
-            switch (input)
-            {
-                case "1":
-                    //update state 
-                    Console.WriteLine("Ride has been updated to RideRequestedState");
-                    break;
-                default:
-                    break;
-            }
         }
     }
 }
