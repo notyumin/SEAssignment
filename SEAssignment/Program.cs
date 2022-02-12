@@ -134,7 +134,7 @@ namespace SEAssignment
             
             customer.makeBooking();
 
-            Ride ride = null;
+            Ride ride = customer.RideList[0];
             string input;
             bool valid;
             bool madePayment = true;
