@@ -397,19 +397,65 @@ namespace SEAssignment
             Console.WriteLine("[Initialising...] Driver Assigned to Ride");
 
             //prompt user for state
+            Console.WriteLine("What state would you like to execute the action in?");
+            Console.WriteLine(
+                    "\n" +
+                    "[1] RideRequestedState\n" +
+                    "[2] DriverAssignedState\n" +
+                    "[3] CustomerWaitingState\n" +
+                    "[4] DriverArrivedState\n" +
+                    "[5] RideStartedState\n" +
+                    "[6] RideDoneState\n" +
+                    "[7] CustomerCancelledState\n"
+                );
+
+            string input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+
+                    ride.setState(ride.RideRequestedState);
+                    break;
+
+                case "2":
+                    ride.setState(ride.DriverAssignedState);
+                    break;
+
+                case "3":
+                    ride.setState(ride.CustomerWaitingState);
+                    break;
+
+                case "4":
+                    ride.setState(ride.DriverArrivedState);
+                    break;
+
+                case "5":
+                    ride.setState(ride.RideStartedState);
+                    break;
+
+                case "6":
+                    ride.setState(ride.RideDoneState);
+                    break;
+
+                case "7":
+                    ride.setState(ride.CustomerCancelledState);
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid input.\n");
+                    break;
+            }
+            Console.WriteLine("\n[Configuring...] Setting Ride State");
+
 
             Console.WriteLine("\nRunning Use Case...");
 
-            Console.WriteLine("\n[Use Case] Try to rate before ride is done");
-            ride.rateCustomer(); //Ride is not completed. You may not leave a review yet.
-            ride.rateDriver(); //Ride is not completed. You may not leave a review yet.
 
-            Console.WriteLine("\n[Configuring...] Set ride to done");
-            ride.setState(ride.RideDoneState);
-
-            Console.WriteLine("\n[Use Case] Try to rate after ride is done");
+            Console.WriteLine("\n[Use Case] Rate Driver/Customer");
             ride.rateCustomer();
             ride.rateDriver();
+            Console.WriteLine();
         }
     }
 }
