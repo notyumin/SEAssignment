@@ -5,6 +5,11 @@ public class RideDoneState : RideState
 
     public RideDoneState(Ride r, string n) : base(r, n) { }
 
+    public override void acceptRide()
+    {
+        Console.WriteLine("Driver has already started and completed the ride.");
+    }
+
     public override void cancelRide()
     {
         Console.WriteLine("Ride is already completed. Ride can no longer be cancelled.");

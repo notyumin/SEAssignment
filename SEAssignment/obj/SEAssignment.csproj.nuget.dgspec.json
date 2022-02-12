@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yapzh\\Downloads\\Sem 3.2\\Software Engineering\\New-SE-Assignment\\SEAssignment\\SEAssignment.csproj": {}
+    "C:\\Users\\harir\\Desktop\\SEM 6\\SE\\SE Assignment code\\SEAssignment\\SEAssignment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yapzh\\Downloads\\Sem 3.2\\Software Engineering\\New-SE-Assignment\\SEAssignment\\SEAssignment.csproj": {
+    "C:\\Users\\harir\\Desktop\\SEM 6\\SE\\SE Assignment code\\SEAssignment\\SEAssignment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yapzh\\Downloads\\Sem 3.2\\Software Engineering\\New-SE-Assignment\\SEAssignment\\SEAssignment.csproj",
+        "projectUniqueName": "C:\\Users\\harir\\Desktop\\SEM 6\\SE\\SE Assignment code\\SEAssignment\\SEAssignment.csproj",
         "projectName": "SEAssignment",
-        "projectPath": "C:\\Users\\yapzh\\Downloads\\Sem 3.2\\Software Engineering\\New-SE-Assignment\\SEAssignment\\SEAssignment.csproj",
-        "packagesPath": "C:\\Users\\yapzh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yapzh\\Downloads\\Sem 3.2\\Software Engineering\\New-SE-Assignment\\SEAssignment\\obj\\",
+        "projectPath": "C:\\Users\\harir\\Desktop\\SEM 6\\SE\\SE Assignment code\\SEAssignment\\SEAssignment.csproj",
+        "packagesPath": "C:\\Users\\harir\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\harir\\Desktop\\SEM 6\\SE\\SE Assignment code\\SEAssignment\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\yapzh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\harir\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,12 +49,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.13, 3.1.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

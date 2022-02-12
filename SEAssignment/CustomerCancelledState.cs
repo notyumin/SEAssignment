@@ -5,6 +5,11 @@ public class CustomerCancelledState : RideState
 
     public CustomerCancelledState(Ride r, string n) : base(r, n) { }
 
+    public override void acceptRide()
+    {
+        Console.WriteLine("Make another booking first!");
+    }
+
     public override void cancelRide()
     {
         Console.WriteLine("Ride already cancelled.");
