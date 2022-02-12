@@ -21,7 +21,8 @@ public class CustomerAccount : UserAccount
 
     }
 
-    public bool Premium {
+    public bool Premium
+    {
         get
         {
             return premium;
@@ -31,7 +32,8 @@ public class CustomerAccount : UserAccount
             premium = value;
         }
     }
-    public int Points {
+    public int Points
+    {
         get
         {
             return points;
@@ -44,7 +46,8 @@ public class CustomerAccount : UserAccount
 
     public void makeBooking()
     {
-        
+        //implementation here
+
         Console.WriteLine("What is your pick up point postal code: ");
         string pickuppoint = Console.ReadLine();
 
@@ -57,6 +60,6 @@ public class CustomerAccount : UserAccount
         Console.WriteLine(parsedDate);
 
         Ride ride = new Ride(pickuppoint, dropoffpoint, parsedDate, this);
-        
+        Console.WriteLine("Searching for driver ................\n");
     }
 }

@@ -17,12 +17,15 @@ public class RideDoneState : RideState
 
     public override void rateDriver()
     {
-        Console.WriteLine("How was the ride? (1-5)");
+        Console.WriteLine("\nHow was the ride? (1-5)");
         string starsInput = Console.ReadLine();
         int stars = Convert.ToInt32(starsInput);
+
+
         Rating rating = new Rating(stars, ride.Customer, ride.Driver);
 
-        Console.WriteLine("Customer: Leave a review!");
+        Console.WriteLine("Customer: Leave a review below!");
+        Console.Write("Feedback: ");
         string feedback = Console.ReadLine();
         if (feedback != "")
         {
@@ -32,7 +35,7 @@ public class RideDoneState : RideState
 
     public override void rateCustomer()
     {
-        Console.WriteLine("How was the ride? (1-5)");
+        Console.WriteLine("\nHow was the customer? (1-5)");
         string starsInput = Console.ReadLine();
         int stars = Convert.ToInt32(starsInput);
         Rating rating = new Rating(stars, ride.Driver, ride.Customer);
