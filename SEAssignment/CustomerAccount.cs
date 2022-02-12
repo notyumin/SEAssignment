@@ -46,7 +46,6 @@ public class CustomerAccount : UserAccount
 
     public void makeBooking()
     {
-        Console.WriteLine("Make Booking\n");
         //implementation here
 
         Console.WriteLine("What is your pick up point postal code: ");
