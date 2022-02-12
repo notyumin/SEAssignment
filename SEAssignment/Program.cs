@@ -59,7 +59,7 @@ namespace SEAssignment
                 Console.WriteLine(
                     "[1] Register Driver\n" +
                     "[2] Make Booking (Customer)\n" +
-                    "[3] Accept Booking (Customer)\n" +
+                    "[3] Accept Booking (Driver)\n" +
                     "[4] Cancel Booking (Customer)\n" +
                     "[5] Make Payment (Customer)\n" +
                     "[0] Exit\n" +
