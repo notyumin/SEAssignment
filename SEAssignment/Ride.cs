@@ -44,7 +44,6 @@ public class Ride : Subject
         rideStartedState = new RideStartedState(this, "Ride Started");
         rideDoneState = new RideDoneState(this, "Ride Done");
 
-
         observers = new List<Observer>();
 
         registerObserver(customer);
@@ -198,8 +197,14 @@ public class Ride : Subject
         {
             if (driver != value)
             {
+                
+                if (value != null)
+                {
+                    registerObserver(value);
+                    value.addRide(this);
+                }
+                removeObserver(driver);
                 driver = value;
-                value.addRide(this);
             }
         }
     }
