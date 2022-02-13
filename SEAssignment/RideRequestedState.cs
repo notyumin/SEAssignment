@@ -7,33 +7,10 @@ public class RideRequestedState : RideState
 
     public override void acceptRide()
     {
-        //TODO (WH)
-		string option = "N";
-		
-		while (option != "Y")
-        {
-			Console.WriteLine("Do you want to accept the customer's booking? (Y/N):");
-			option = Console.ReadLine();
-
-			switch (option)
-            {
-				case "Y":
-
-					break;
-
-				case "N":
-
-					return;
-
-				default:
-					Console.WriteLine("Please enter either Y or N.");
-					Console.WriteLine("");
-					break;
-            }
-        }
-
-		ride.setState(ride.DriverAssignedState);
-        Console.WriteLine("You have accepted the booking.");
+        Console.WriteLine();
+        Console.WriteLine("You have accepted the customer's booking!");
+        Console.WriteLine();
+        ride.setState(ride.DriverAssignedState);
     }
 
     public override void cancelRide()

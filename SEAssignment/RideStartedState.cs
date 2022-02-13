@@ -7,7 +7,9 @@ public class RideStartedState : RideState
 
     public override void acceptRide()
     {
-        Console.WriteLine("Driver has already started the ride. He won't be able to accept any bookings now.");
+        Console.WriteLine();
+        Console.WriteLine("You have already started the ride. You won't be able to accept any bookings now.");
+        Console.WriteLine();
     }
 
     public override void cancelRide()

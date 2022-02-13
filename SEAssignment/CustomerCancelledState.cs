@@ -8,7 +8,9 @@ public class CustomerCancelledState : RideState
     public override void acceptRide()
     {
         // Pre-condition not met
-        Console.WriteLine("Make another booking first!");
+        Console.WriteLine();
+        Console.WriteLine("The customer has decided to cancel the booking.");
+        Console.WriteLine();
     }
 
     public override void cancelRide()

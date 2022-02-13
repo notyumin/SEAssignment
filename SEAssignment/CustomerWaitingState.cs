@@ -6,7 +6,9 @@ public class CustomerWaitingState : RideState
 
     public override void acceptRide()
     {
-        Console.WriteLine("Currently waiting for a driver to accept your booking.");
+        Console.WriteLine();
+        Console.WriteLine("You have already accepted this booking and the customer is at the pickup point");
+        Console.WriteLine();
     }
 
     public override void cancelRide()

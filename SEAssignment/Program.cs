@@ -165,8 +165,10 @@ namespace SEAssignment
 
             if (status == "N")
             {
+                Console.WriteLine();
                 Console.WriteLine("Booking has been rejected.");
                 Console.WriteLine("Booking fee has been refunded back to the customer.");
+                Console.WriteLine();
             }
         }
 

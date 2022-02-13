@@ -6,7 +6,9 @@ public class DriverArrivedState : RideState
 
     public override void acceptRide()
     {
-        Console.WriteLine("Driver has already accepted the booking and has arrived at the pick up destination.");
+        Console.WriteLine();
+        Console.WriteLine("You have already accepted the booking and arrived at the pickup point.");
+        Console.WriteLine();
     }
 
     public override void cancelRide()

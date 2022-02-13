@@ -7,7 +7,9 @@ public class DriverAssignedState : RideState
 
     public override void acceptRide()
     {
-        Console.WriteLine("A driver has already accepted this ride.");
+        Console.WriteLine();
+        Console.WriteLine("You have already been accepted and assigned to this ride.");
+        Console.WriteLine();
     }
 
     public override void cancelRide()

@@ -7,7 +7,9 @@ public class RideDoneState : RideState
 
     public override void acceptRide()
     {
-        Console.WriteLine("Driver has already started and completed the ride.");
+        Console.WriteLine();
+        Console.WriteLine("You have already started and completed the current ride.");
+        Console.WriteLine();
     }
 
     public override void cancelRide()
