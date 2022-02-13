@@ -393,6 +393,89 @@ namespace SEAssignment
         static void MakePayment()
         {
             Console.WriteLine("Make Payment\n");
+            //Data for testting
+            CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
+            customer.Premium = true;
+            DateTime dt = new DateTime(2022, 02, 15);
+            Ride ride = new Ride("621431", "632123", dt, customer);
+            Receipt receipt = ride.Receipt;
+            string purpose = "Fare";
+            double fare = 50.30;
+            //bool complete = false;
+            PaymentCreditCard payCC = new PaymentCreditCard("4039 4810 9302 9403", receipt, purpose, fare);
+            Console.WriteLine(
+                        "=== Total Costs ===\n" +
+                        "\n" +
+                        "{0}: ${1}\n", purpose, fare
+                    );
+            Console.Write(
+                        "=== Payment Methods ===\n" +
+                        "\n" +
+                        "[1] Credit Card\n" +
+                        "[2] PickUpNow Points\n" +
+                        "[3] Gift Card\n" +
+                        "\n" +
+                        "Please select payment method: "
+                    );
+            string input = Console.ReadLine();
+            if (input == "1")
+            {
+                Console.Write("Input credit card information: ");
+                string ccNo = Console.ReadLine();
+
+                if (ccNo == payCC.CreditCardNo)
+                {
+                    payCC.pay();
+                    //complete = true;
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid Payment Information\n");
+                }
+            }
+            else if (input == "2")
+            {
+                PaymentPoints payPoints = new PaymentPoints(receipt, purpose, fare);
+                if (customer.Premium == true)
+                {
+                    receipt.Ride.Customer.Points = 60;
+                    //receipt.Ride.Customer.Points = 40; use to test insufficient points
+                    payPoints.pay();
+                }
+                else
+                {
+                    Console.WriteLine("\nAccount is not Premium User");
+                }
+            }
+            else if (input == "3")
+            {
+                GiftCard gc = new GiftCard(10);
+                gc.Id = 10;
+                PaymentGiftCard payGC = new PaymentGiftCard(gc, receipt, purpose, fare);
+                Console.Write("Enter Gift Card ID: ");
+                int id = Convert.ToInt32(Console.ReadLine());
+                if (id == gc.Id)
+                {
+                    payGC.pay();
+                    Console.Write("Input credit card information: ");
+                    string ccNo = Console.ReadLine();
+
+                    if (ccNo == payCC.CreditCardNo)
+                    {
+                        payCC.pay();
+                        //complete = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nInvalid Payment Information\n");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Gift card does not exist");
+                }
+
+            }
             //implementation here
         }
 
