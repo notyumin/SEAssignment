@@ -11,7 +11,7 @@ public abstract class UserAccount : Observer
     protected string emailAddr;
     protected double rating; // Derived attribute
 
-    private List<Rating> ratingList;
+    protected List<Rating> ratingList;
 
     public UserAccount(string username, string contact, string email)
     {
