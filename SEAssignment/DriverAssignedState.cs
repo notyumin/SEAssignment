@@ -25,7 +25,7 @@ public class DriverAssignedState : RideState
 
             // Step 5: Check if cancellation date is within 3 days before the ride
             DateTime currentDate = DateTime.Now;
-            if (ride.StartTime.AddDays(3) >= currentDate)
+            if (currentDate.AddDays(3) >= ride.StartTime)
             {
                 // Step 6-7: Display deposit refund message
                 depositRefund = false;
@@ -46,7 +46,7 @@ public class DriverAssignedState : RideState
 
             // Step 5: Check if cancellation date is within 3 days before the ride
             DateTime currentDate = DateTime.Now;
-            if (ride.StartTime.AddDays(3) >= currentDate)
+            if (currentDate.AddDays(3) >= ride.StartTime)
             {
                 // Step 6-7: Display deposit refund message
                 depositRefund = false;
