@@ -33,6 +33,7 @@ public class RideRequestedState : RideState
         }
 
 		ride.setState(ride.DriverAssignedState);
+        Console.WriteLine("You have accepted the booking.");
     }
 
     public override void cancelRide()
