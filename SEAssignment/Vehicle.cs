@@ -3,10 +3,10 @@
 public class Vehicle
 {
 
-    private string licencePlateNo;
-    private string brand;
-    private string model;
-    private DriverAccount driver;
+    protected string licencePlateNo;
+    protected string brand;
+    protected string model;
+    protected DriverAccount driver;
 
     public Vehicle(string plateNo, string vehBrand, string vehModel)
     {

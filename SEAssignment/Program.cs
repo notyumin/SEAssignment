@@ -474,6 +474,8 @@ namespace SEAssignment
                 }
                 Console.WriteLine(method + " for " + item.Purpose + ": " + item.Status);
             }
+
+            Console.WriteLine("");
         }
 
         static void MakePayment()

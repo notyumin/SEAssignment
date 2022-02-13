@@ -12,6 +12,7 @@ public class CustomerAccount : UserAccount
         points = 0;
     }
 
+    // Ride should already have customer and should have no possibility of changing it (no set)
     public override void addRide(Ride r)
     {
         if (!rideList.Contains(r))
@@ -32,6 +33,7 @@ public class CustomerAccount : UserAccount
             premium = value;
         }
     }
+
     public int Points
     {
         get

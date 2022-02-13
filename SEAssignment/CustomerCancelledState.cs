@@ -13,6 +13,7 @@ public class CustomerCancelledState : RideState
 
     public override void cancelRide()
     {
+        // Pre-condition not met
         Console.WriteLine("Ride already cancelled.");
     }
 
