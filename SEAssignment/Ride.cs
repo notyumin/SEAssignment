@@ -118,6 +118,19 @@ public class Ride : Subject
         rideCurrState.rateDriver();
     }
 
+    public void assignDriver(List<DriverAccount> drivers, string vehicleType)
+    {
+        Iterator available = createIterator(drivers, vehicleType);
+        Driver = (DriverAccount) available.next();
+    }
+
+    // Used for assigning available driver
+    public Iterator createIterator(List<DriverAccount> drivers, string vehicleType)
+    {
+        // Vehicle Type can be "Car", "Excursion Bus" or "Van"
+        return new DriverIterator(drivers, startTime, endTime, vehicleType);
+    }
+
     public int RefNo
     {
         get
