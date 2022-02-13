@@ -51,7 +51,7 @@ public class RideRequestedState : RideState
             Console.WriteLine("Deposit:" + van.Deposit);
 
             // AF3: Driver has not accepted booking
-            Console.WriteLine("Full payment will be refunded.");
+            Console.WriteLine("Full payment will be refunded if any.");
 
         }
         // AF 2: Vehicle is an excursion bus
@@ -62,7 +62,7 @@ public class RideRequestedState : RideState
             Console.WriteLine("Deposit:" + bus.Deposit);
 
             // AF3: Driver has not accepted booking
-            Console.WriteLine("Full payment will be refunded.");
+            Console.WriteLine("Full payment will be refunded if any.");
         }
 
         // Step 8: System prompts for confirmation
