@@ -7,6 +7,7 @@ public class CustomerCancelledState : RideState
 
     public override void acceptRide()
     {
+        // Pre-condition not met
         Console.WriteLine("Make another booking first!");
     }
 

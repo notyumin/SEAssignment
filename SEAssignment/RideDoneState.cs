@@ -12,6 +12,7 @@ public class RideDoneState : RideState
 
     public override void cancelRide()
     {
+        // Pre-condition not met
         Console.WriteLine("Ride is already completed. Ride can no longer be cancelled.");
     }
 

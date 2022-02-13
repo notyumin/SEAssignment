@@ -12,7 +12,8 @@ public class GiftCard
         amount = amt;
     }
 
-    public int Id {
+    public int Id
+    {
         get
         {
             return id;
@@ -22,7 +23,8 @@ public class GiftCard
             id = value;
         }
     }
-    public double Amount {
+    public double Amount
+    {
         get
         {
             return amount;
