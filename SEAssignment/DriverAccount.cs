@@ -36,7 +36,8 @@ public class DriverAccount : UserAccount
         }
     }
 
-    public string BankAccNo {
+    public string BankAccNo
+    {
         get
         {
             return bankAccNo;
@@ -47,7 +48,8 @@ public class DriverAccount : UserAccount
         }
     }
 
-    public string BankName {
+    public string BankName
+    {
         get
         {
             return bankName;
@@ -58,7 +60,8 @@ public class DriverAccount : UserAccount
         }
     }
 
-    public double Amount {
+    public double Amount
+    {
         get
         {
             return amount;
@@ -79,6 +82,7 @@ public class DriverAccount : UserAccount
         set
         {
             vehicle = value;
+            value.Driver = this;
         }
 
     }
