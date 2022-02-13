@@ -9,7 +9,9 @@ public class PaymentCreditCard : Payment
 		creditCardNo = creditNo;
 	}
 
-	public override void pay() { }
+	public override void pay() {
+		Console.WriteLine("\nTransaction Successful\n");
+	}
 
 	public override void payDriver()
 	{

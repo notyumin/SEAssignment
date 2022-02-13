@@ -8,7 +8,17 @@ public class PaymentGiftCard : Payment
 		giftCard = gift;
 	}
 
-	public override void pay() { }
+	public override void pay() {
+		if (receipt.Status != "Refunded")
+		{
+			double ogAmount = amount;
+			amount -= giftCard.Amount;
+			Console.WriteLine("=== Total Cost ===\n");
+			Console.WriteLine("Gift Card Amount: ${0}\n", giftCard.Amount);
+			Console.WriteLine("Original Fare: ${0}", ogAmount);
+			Console.WriteLine("New Fare: ${0}\n",amount);
+		}
+	}
 
 	public override void payDriver()
 	{
