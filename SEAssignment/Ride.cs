@@ -32,10 +32,14 @@ public class Ride : Subject
         destination = dropOffPoint;
         startTime = start;
 
+        // Customer has a 1 to 1 "has a" association with ride
+        // Upon construction, ride should be linked to customer with no possible way of changing it (no set)
         customer = cust;
         customer.addRide(this);
+
         // auto increment ref no
 
+        // Initialize all states
         rideRequestedState = new RideRequestedState(this, "Ride Requested");
         driverAssignedState = new DriverAssignedState(this, "Driver Assigned");
         customerCancelledState = new CustomerCancelledState(this, "Customer Cancelled");
@@ -47,8 +51,11 @@ public class Ride : Subject
         observers = new List<Observer>();
 
         registerObserver(customer);
+
+        // Set default state
         setState(rideRequestedState);
 
+        // Create "has a" association with receipt
         receipt = new Receipt(this);
 
         calculateEndTime();

@@ -9,7 +9,7 @@ public abstract class UserAccount : Observer
     protected string name;
     protected string contactNo;
     protected string emailAddr;
-    protected double rating;
+    protected double rating; // Derived attribute
 
     private List<Rating> ratingList;
 
@@ -26,6 +26,7 @@ public abstract class UserAccount : Observer
 
     public void update(Subject s)
     {
+        // If change in state in ride
         if (s is Ride)
         {
             Ride ride = (Ride)s;
@@ -34,7 +35,8 @@ public abstract class UserAccount : Observer
             Console.WriteLine(name + "'s ride has updated it's status to: " + ride.RideCurrState.RideStateName);
         }
 
-        if (s is Rating)
+        // If new rating/ updated rating
+        else if (s is Rating)
         {
             Rating rating = (Rating)s;
 
@@ -43,7 +45,8 @@ public abstract class UserAccount : Observer
             updateAverageRating();
         }
 
-        if (s is Review && this is DriverAccount)
+        // If new review/ updated review
+        else if (s is Review && this is DriverAccount)
         {
             Review review = (Review)s;
 
@@ -61,6 +64,7 @@ public abstract class UserAccount : Observer
         }
     }
 
+    // Calculate average rating
     public void updateAverageRating()
     {
         int totalStars = 0;
@@ -93,6 +97,8 @@ public abstract class UserAccount : Observer
         }
     }
 
+    // AddRide is abstract as the methods neccessary for both should differ
+    // Ride should already have customer and should have no possibility of changing
     public abstract void addRide(Ride r);
 
     public string Name
@@ -131,6 +137,8 @@ public abstract class UserAccount : Observer
         }
     }
 
+    // Average is calculated upon update/ new rating
+    // Should not have a set command for a derived attribute
     public double Rating
     {
         get

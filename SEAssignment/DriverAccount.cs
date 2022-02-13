@@ -19,6 +19,7 @@ public class DriverAccount : UserAccount
         reviewList = new List<Review>();
     }
 
+    // Add driver to ride back
     public override void addRide(Ride r)
     {
         if (!rideList.Contains(r))
@@ -28,6 +29,7 @@ public class DriverAccount : UserAccount
         }
     }
 
+    // Review should already have driver and should have no possibility of changing it (no set)
     public void addReview(Review r)
     {
         if (!reviewList.Contains(r))

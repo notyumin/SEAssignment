@@ -23,6 +23,7 @@ public class GiftCard
             id = value;
         }
     }
+
     public double Amount
     {
         get

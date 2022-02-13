@@ -11,12 +11,16 @@ public class Rating : Subject
 
     private List<Observer> observers;
 
-    public Rating(int r, UserAccount ter, UserAccount tee)
+    public Rating(int rate, UserAccount ter, UserAccount tee)
     {
         // auto increment id
-        stars = r;
+        stars = rate;
+
+        // Rating has a 1 to 1 "has a" association with rater and ratee
+        // Upon construction, rating should be linked to rater and ratee with no possible way of changing it (no set)
         rater = ter;
         ratee = tee;
+
         tee.addRating(this);
 
         // add admin and ratee as observers
@@ -47,6 +51,8 @@ public class Rating : Subject
             stars = value;
         }
     }
+
+    // No set should be available, as it should be tied to the rater (not necessarily a weak entity)
     public UserAccount Rater
     {
         get
@@ -55,6 +61,7 @@ public class Rating : Subject
         }
     }
 
+    // No set should be available, as it should be tied to the ratee (not necessarily a weak entity)
     public UserAccount Ratee
     {
         get { return ratee; }

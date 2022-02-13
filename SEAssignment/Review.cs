@@ -14,11 +14,14 @@ public class Review : Subject
     {
         // auto increment id
         description = r;
+
+        // Rating has a 1 to 1 "has a" association with reviewer and reviewee
+        // Upon construction, rating should be linked to reviewer and reviewee with no possible way of changing it (no set)
         reviewer = er;
         reviewee = ee;
         ee.addReview(this);
 
-        // add admin and ratee as observers
+        // add admin and reviewee as observers
         AdminAccount admin = AdminAccount.getInstance();
         observers = new List<Observer>() { admin, ee };
         notifyObservers();
@@ -46,6 +49,7 @@ public class Review : Subject
         }
     }
 
+    // No set should be available, as it should be tied to the reviewer(not necessarily a weak entity)
     public CustomerAccount Reviewer {
         get
         {
@@ -53,6 +57,7 @@ public class Review : Subject
         }
     }
 
+    // No set should be available, as it should be tied to the reviewee (not necessarily a weak entity)
     public DriverAccount Reviewee
     {
         get { return reviewee; }

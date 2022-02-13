@@ -10,6 +10,8 @@ public abstract class  Payment
 	public Payment(Receipt r, string purp, double amt)
     {
 
+		// Receipt has a 1 to many "has a" association with payment
+		// Upon construction, payment should be added to the receipt with no possible way of changing it (no set)
 		receipt = r;
 		receipt.addPayment(this);
 
@@ -59,6 +61,7 @@ public abstract class  Payment
 		}
 	}
 
+	// No set should be available, as it should be tied to the receipt (not necessarily a weak entity)
 	public Receipt Receipt
 	{
 		get
