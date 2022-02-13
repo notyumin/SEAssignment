@@ -6,10 +6,7 @@ class AdminAccount : Observer
 
     public static AdminAccount uniqueInstance = null;
 
-    private AdminAccount()
-    {
-
-    }
+    private AdminAccount() { }
 
     public static AdminAccount getInstance()
     {
