@@ -416,7 +416,7 @@ namespace SEAssignment
                             foreach (KeyValuePair<string, double> item in payment)
                             {
                                 PaymentGiftCard payGift = new PaymentGiftCard(giftCard, receipt, item.Key, item.Value / 2);
-                                PaymentCreditCard payCC = new PaymentCreditCard("4039 4810 9302 9403", receipt, item.Key, item.Value);
+                                PaymentCreditCard payCC = new PaymentCreditCard("4039 4810 9302 9403", receipt, item.Key, item.Value /2);
                             }
 
                             valid = true;
@@ -428,7 +428,7 @@ namespace SEAssignment
                             foreach (KeyValuePair<string, double> item in payment)
                             {
                                 PaymentPoints payPoint = new PaymentPoints(receipt, item.Key, item.Value / 2);
-                                PaymentPoints payCC = new PaymentPoints(receipt, item.Key, item.Value / 2);
+                                PaymentCreditCard payCC = new PaymentCreditCard("4039 4810 9302 9403", receipt, item.Key, item.Value /2);
                             }
 
                             valid = true;
