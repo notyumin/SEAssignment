@@ -17,25 +17,33 @@ public class DriverIterator : Iterator
         endTime = end;
         vehicleType = vehicle;
 
+        // Loop through list of drivers
         while (position < drivers.Count)
         {
+            // Check if driver's vehicle is what is desired
             if ((drivers[position].Vehicle is Car && vehicleType == "Car") || (drivers[position].Vehicle is ExcursionBus && vehicleType == "Excursion Bus") || (drivers[position].Vehicle is Van && vehicleType == "Van")){
                 bool found = true;
+
+                // Loop through their rides to check for conflicting time
                 foreach (Ride ride in drivers[position].RideList)
                 {
+                    // If ride still ongoing
                     if (ride.RideCurrState.RideStateName != "Customer Cancelled" && ride.RideCurrState.RideStateName != "Customer Started" && ride.RideCurrState.RideStateName == "Customer Done")
                     {
-                        if (startTime < ride.StartTime && endTime > ride.EndTime)
+                        // If conflicting time
+                        if (startTime >= ride.StartTime && endTime <= ride.EndTime)
                         {
                             found = false;
                         }
                     }
                 }
+                // If no conflicting time
                 if (found == true)
                 {
                     break;
                 }
             }
+            // If conflicting time/ not the correct vehicle, move to next driver
             position += 1;
 
         }
@@ -55,27 +63,36 @@ public class DriverIterator : Iterator
         DriverAccount driver = drivers[position];
         position += 1;
 
+        // Loop through list of drivers
         while (position < drivers.Count)
         {
+            // Check if driver's vehicle is what is desired
             if ((drivers[position].Vehicle is Car && vehicleType == "Car") || (drivers[position].Vehicle is ExcursionBus && vehicleType == "Excursion Bus") || (drivers[position].Vehicle is Van && vehicleType == "Van"))
             {
                 bool found = true;
+
+                // Loop through their rides to check for conflicting time
                 foreach (Ride ride in drivers[position].RideList)
                 {
+                    // If ride still ongoing
                     if (ride.RideCurrState.RideStateName != "Customer Cancelled" && ride.RideCurrState.RideStateName != "Customer Started" && ride.RideCurrState.RideStateName == "Customer Done")
                     {
-                        if (startTime < ride.StartTime && endTime > ride.EndTime)
+                        // If conflicting time
+                        if (startTime >= ride.StartTime && endTime <= ride.EndTime)
                         {
                             found = false;
                         }
                     }
                 }
+                // If no conflicting time
                 if (found == true)
                 {
                     break;
                 }
             }
+            // If conflicting time/ not the correct vehicle, move to next driver
             position += 1;
+
         }
 
         return driver;
