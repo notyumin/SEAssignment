@@ -63,4 +63,9 @@ public class CustomerAccount : UserAccount
 
         return ride;
     }
+
+    public GiftCard createGiftCard(double amount)
+    {
+        return new GiftCard(amount);
+    }
 }
