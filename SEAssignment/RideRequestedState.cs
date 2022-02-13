@@ -51,7 +51,7 @@ public class RideRequestedState : RideState
             Console.WriteLine("Deposit:" + van.Deposit);
 
             // AF3: Driver has not accepted booking
-            Console.WriteLine("Full payment will be refunded.");
+            Console.WriteLine("Full payment will be refunded if any.");
 
         }
         // AF 2: Vehicle is an excursion bus
@@ -62,7 +62,7 @@ public class RideRequestedState : RideState
             Console.WriteLine("Deposit:" + bus.Deposit);
 
             // AF3: Driver has not accepted booking
-            Console.WriteLine("Full payment will be refunded.");
+            Console.WriteLine("Full payment will be refunded if any.");
         }
 
         // Step 8: System prompts for confirmation
@@ -100,14 +100,14 @@ public class RideRequestedState : RideState
         foreach (var payment in ride.Receipt.PaymentList)
         {
             // Step 14, AF7: Refund amount
-            if ((payment.Purpose == "Booking Fee") || (payment.Purpose == "Deposit Fee" && depositRefund))
+            if ((payment.Purpose == "Booking Fee") || (payment.Purpose == "Deposit" && depositRefund))
             {
                 // Step 15-17, AF9, AF10
                 payment.refund();
                 payment.Status = "Refunded";
             }
             // AF8: Do not refund amount, pay driver instead
-            else if (payment.Purpose == "Deposit Fee" && depositRefund == false)
+            else if (payment.Purpose == "Deposit" && depositRefund == false)
             {
                 payment.payDriver();
             }
