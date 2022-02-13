@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class Ride : Subject
+public class Ride : Aggregate, Subject
 {
     private int refNo;
     private double fare;
@@ -125,7 +125,7 @@ public class Ride : Subject
     }
 
     // Used for assigning available driver
-    public Iterator createIterator(List<DriverAccount> drivers, string vehicleType)
+    public override Iterator createIterator(List<DriverAccount> drivers, string vehicleType)
     {
         // Vehicle Type can be "Car", "Excursion Bus" or "Van"
         return new DriverIterator(drivers, startTime, endTime, vehicleType);
