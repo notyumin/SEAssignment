@@ -137,10 +137,6 @@ public abstract class UserAccount : Observer
         {
             return rating;
         }
-        set
-        {
-            rating = value;
-        }
     }
 
 }

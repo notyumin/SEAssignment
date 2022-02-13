@@ -6,6 +6,7 @@ public class Vehicle
     private string licencePlateNo;
     private string brand;
     private string model;
+    private DriverAccount driver;
 
     public Vehicle(string plateNo, string vehBrand, string vehModel)
     {
@@ -14,7 +15,8 @@ public class Vehicle
         model = vehModel;
     }
 
-    public string LicencePlateNo {
+    public string LicencePlateNo
+    {
         get
         {
             return licencePlateNo;
@@ -24,7 +26,8 @@ public class Vehicle
             licencePlateNo = value;
         }
     }
-    public string Brand {
+    public string Brand
+    {
         get
         {
             return brand;
@@ -44,6 +47,22 @@ public class Vehicle
         set
         {
             model = value;
+        }
+    }
+
+    public DriverAccount Driver
+    {
+        get
+        {
+            return driver;
+        }
+        set
+        {
+            if (driver != value)
+            {
+                driver = value;
+                value.Vehicle = this;
+            }
         }
     }
 }
