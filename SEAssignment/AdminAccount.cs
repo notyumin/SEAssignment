@@ -2,12 +2,11 @@ using System;
 
 class AdminAccount : Observer
 {
+    // Singleton design pattern
+
     public static AdminAccount uniqueInstance = null;
 
-    private AdminAccount()
-    {
-
-    }
+    private AdminAccount() { }
 
     public static AdminAccount getInstance()
     {

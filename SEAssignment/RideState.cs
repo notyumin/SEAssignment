@@ -9,7 +9,7 @@ public abstract class RideState
     public RideState(Ride r, string n)
     {
         ride = r;
-        rideStateName = n;
+        rideStateName = n; // Easily identify what type of ride it is
     }
 
     public abstract void acceptRide();
