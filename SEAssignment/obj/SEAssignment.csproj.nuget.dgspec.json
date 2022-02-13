@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\starw\\source\\repos\\SEAssignment\\SEAssignment\\SEAssignment.csproj": {}
+    "C:\\Users\\weiha\\Desktop\\NPIT\\Sem 6\\SE\\Assignment\\Assignment Code\\SEAssignment\\SEAssignment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\starw\\source\\repos\\SEAssignment\\SEAssignment\\SEAssignment.csproj": {
+    "C:\\Users\\weiha\\Desktop\\NPIT\\Sem 6\\SE\\Assignment\\Assignment Code\\SEAssignment\\SEAssignment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\starw\\source\\repos\\SEAssignment\\SEAssignment\\SEAssignment.csproj",
+        "projectUniqueName": "C:\\Users\\weiha\\Desktop\\NPIT\\Sem 6\\SE\\Assignment\\Assignment Code\\SEAssignment\\SEAssignment.csproj",
         "projectName": "SEAssignment",
-        "projectPath": "C:\\Users\\starw\\source\\repos\\SEAssignment\\SEAssignment\\SEAssignment.csproj",
-        "packagesPath": "C:\\Users\\starw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\starw\\source\\repos\\SEAssignment\\SEAssignment\\obj\\",
+        "projectPath": "C:\\Users\\weiha\\Desktop\\NPIT\\Sem 6\\SE\\Assignment\\Assignment Code\\SEAssignment\\SEAssignment.csproj",
+        "packagesPath": "C:\\Users\\weiha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\weiha\\Desktop\\NPIT\\Sem 6\\SE\\Assignment\\Assignment Code\\SEAssignment\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\starw\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\weiha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

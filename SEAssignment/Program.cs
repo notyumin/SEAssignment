@@ -96,7 +96,7 @@ namespace SEAssignment
         {
             CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
-            RegisterDriver();
+            DriverAccount driver = new DriverAccount("1111-2222-3333-4444", "OCBC", "jordie", "83749273", "jordie@gmail.com");
 
             Ride ride = customer.makeBooking();
 
@@ -161,14 +161,12 @@ namespace SEAssignment
             if (status == "Y")
             {
                 Console.WriteLine("Booking has been accepted");
-
             }
 
             if (status == "N")
             {
                 Console.WriteLine("Booking has been rejected.");
                 Console.WriteLine("Booking fee has been refunded back to the customer.");
-
             }
         }
 
@@ -189,6 +187,7 @@ namespace SEAssignment
             bool madePayment = true;
 
             valid = false;
+            Console.WriteLine("");
 
             while (valid == false)
             {
@@ -454,7 +453,7 @@ namespace SEAssignment
             // Print general data
             Console.WriteLine("");
             Console.WriteLine("Print Showcase");
-            Console.WriteLine("Receipt Status" + receipt.Status);
+            Console.WriteLine("Receipt Status " + receipt.Status);
 
             // Print payment refund data
             foreach (Payment item in receipt.PaymentList)
