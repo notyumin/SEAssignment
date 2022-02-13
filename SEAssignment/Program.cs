@@ -120,6 +120,8 @@ namespace SEAssignment
             DriverAccount driver = new DriverAccount(bankNo, bankNa, username, contact, email);
 
             driver.RegisterVehicle();
+
+            Console.WriteLine("Driver has been registered successfully.");
         }
 
         static void MakeBooking()
@@ -134,10 +136,86 @@ namespace SEAssignment
 
         static void AcceptBooking()
         {
-            DriverAccount 
+            CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
-            Console.WriteLine("Accept Booking\n");
-            //implementation here
+            RegisterDriver();
+
+            Ride ride = customer.makeBooking();
+
+            //Prompt user for state
+            Console.WriteLine("What state would you like to execute the use case in?");
+            Console.WriteLine(
+                    "\n" +
+                    "[1] RideRequestedState\n" +
+                    "[2] DriverAssignedState\n" +
+                    "[3] CustomerWaitingState\n" +
+                    "[4] DriverArrivedState\n" +
+                    "[5] RideStartedState\n" +
+                    "[6] RideDoneState\n" +
+                    "[7] CustomerCancelledState\n"
+                );
+
+            string opt;
+            bool makePayment;
+            opt = Console.ReadLine();
+            makePayment = false;
+
+            switch (opt)
+            {
+                case "1":
+                    ride.setState(ride.RideRequestedState);
+                    makePayment = true;
+                    break;
+
+                case "2":
+                    ride.setState(ride.DriverAssignedState);
+                    break;
+
+                case "3":
+                    ride.setState(ride.CustomerWaitingState);
+                    break;
+
+                case "4":
+                    ride.setState(ride.DriverArrivedState);
+                    break;
+
+                case "5":
+                    ride.setState(ride.RideStartedState);
+                    break;
+
+                case "6":
+                    ride.setState(ride.RideDoneState);
+                    break;
+
+                case "7":
+                    ride.setState(ride.CustomerCancelledState);
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid input.\n");
+                    break;
+            }
+
+            Console.WriteLine("\n[Configuring...] Setting Ride State");
+
+            Console.WriteLine("Use Case: Accept Booking\n");
+
+            Console.WriteLine("Do you accept the customer's booking? (Y/N):");
+            string status = Console.ReadLine();
+
+            if (status == "Y")
+            {
+                Console.WriteLine("Booking has been accepted");
+                Console.WriteLine("Payment has been made.");
+
+            }
+
+            if (status == "N")
+            {
+                Console.WriteLine("Booking has been rejected.");
+                Console.WriteLine("Booking fee has been refunded back to the customer.");
+
+            }
         }
 
         static void CancelBooking()
