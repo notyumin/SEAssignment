@@ -160,7 +160,7 @@ namespace SEAssignment
 
             if (status == "Y")
             {
-                Console.WriteLine("Booking has been accepted");
+                ride.acceptRide();
             }
 
             if (status == "N")
