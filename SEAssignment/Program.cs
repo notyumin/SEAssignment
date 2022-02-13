@@ -7,51 +7,9 @@ namespace SEAssignment
     {
         static void Main(string[] args)
         {
-            //Setup Preconditions
-            DriverAccount driver = new DriverAccount("3000-3000-2000-4000", "Maybank", "Driver", "#65-93031902", "driver@gmail.com");
-            CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
             Menu();
-            // Cancel Booking Stuff
-            /* DriverAccount driver = new DriverAccount("3000-3000-2000-4000", "Maybank", "Driver", "#65-93031902", "driver@gmail.com");
-            Van van = new Van(50.30, 5.3, "Lalaland", "Mercedes?", "SIQOWE-2903");
-            driver.Vehicle = van;
-
-            CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
-
-            customer.makeBooking();
-            Ride ride = customer.RideList[0];
-            Receipt receipt = ride.Receipt;
-            //manually assign driver
-            ride.Driver = driver;
-
-            //Ride ride = new Ride("390392", "490290", DateTime.Now, customer);
-            //Receipt receipt = ride.Receipt;
-
-            PaymentPoints payPoint = new PaymentPoints(receipt, "Booking Fee", 20);
-            PaymentCreditCard payCC = new PaymentCreditCard("9403-9030-0943", receipt, "Booking Fee", 300.45);
-            PaymentCreditCard payCC2 = new PaymentCreditCard("9403-9030-0943", receipt, "Deposit", 300.45);
-
-            ride.rateCustomer();
-            ride.rateDriver();
-            ride.cancelRide();
-
-            ride.setState(ride.RideDoneState);
-
-            ride.rateCustomer();
-            ride.rateDriver();
-            ride.cancelRide();
-
-            Console.WriteLine(payPoint.Status);
-
-            ride.Driver = driver;
-            ride.registerObserver(driver);
-
-            ride.setState(ride.DriverAssignedState);
-            ride.cancelRide();
-
-            Console.WriteLine(payPoint.Status);
-            Console.WriteLine(customer.Points); */
+           
         }
 
         static void Menu()
@@ -60,6 +18,8 @@ namespace SEAssignment
             while (input != "0")
             {
                 Console.WriteLine(
+                    "=== Main Menu ===\n" +
+                    "\n" +
                     "[1] Register Driver\n" +
                     "[2] Make Booking (Customer)\n" +
                     "[3] Accept Booking (Driver)\n" +
@@ -143,14 +103,15 @@ namespace SEAssignment
         static void CancelBooking()
         {
 
-            // General Set-Up for Cancel Booking
-
+            // Initializing Customer
             CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
+            // Initializing Ride
             Console.WriteLine("Set start date to be 3 days beyond current date to test no deposit refund");
 
             Ride ride = customer.makeBooking();
 
+            // Setting Ride State
             string input;
             bool valid;
             bool madePayment = true;
@@ -179,55 +140,68 @@ namespace SEAssignment
                 {
                     case "1":
 
+                        // Set state to ride requested
                         ride.setState(ride.RideRequestedState);
                         valid = true;
-                        madePayment = false;
                         break;
 
                     case "2":
 
+                        // Set state to driver assigned
                         ride.setState(ride.DriverAssignedState);
                         valid = true;
                         break;
 
                     case "3":
 
+                        // Set state to customer waiting
                         ride.setState(ride.CustomerWaitingState);
                         valid = true;
                         break;
 
                     case "4":
 
+                        // Set state to driver arrived
                         ride.setState(ride.DriverArrivedState);
                         valid = true;
                         break;
 
                     case "5":
 
+                        // Set state to ride started
                         ride.setState(ride.RideStartedState);
                         valid = true;
                         break;
 
                     case "6":
 
+                        // Set state to ride done
                         ride.setState(ride.RideDoneState);
                         valid = true;
                         break;
 
                     case "7":
 
+                        // Set state to customer cancelled
                         ride.setState(ride.CustomerCancelledState);
                         valid = true;
                         break;
 
                     default:
+                        // Invalid input
                         Console.WriteLine("Invalid input.\n");
                         break;
                 }
             }
 
-            input = "";
+            Console.WriteLine("");
+
+            // Initalizing Driver
+            // Initializing Vehicle for Driver
+
             valid = false;
+
+            // Store payment amount for deposit and booking fee
             Dictionary<string, double> payment = new Dictionary<string, double>();
 
             while (valid == false)
@@ -246,37 +220,53 @@ namespace SEAssignment
                 {
                     case "1":
 
+                        // Create Car Driver
                         DriverAccount carDriver = new DriverAccount("3000-3000-2000-4000", "Maybank", "CarDriver", "93031902", "CarDriver@gmail.com");
-                        Car car = new Car("SMS8875K", "Tesla", "E0WQOE-1304");
-                        carDriver.Vehicle = car;
 
-                        ride = customer.RideList[0];
+                        // Create Car
+                        Car car = new Car("SMS8875K", "Tesla", "E0WQOE-1304");
+
+                        // Set associations
+                        carDriver.Vehicle = car;
                         ride.Driver = carDriver;
+
                         valid = true;
                         break;
 
                     case "2":
 
+                        // Create Van Driver
                         DriverAccount vanDriver = new DriverAccount("2000-2000-2000-4000", "POSB", "VanDriver", "90203030", "VanDriver@gmail.com");
+
+                        // Create Van
                         Van van = new Van(50.30, 4.30, "GTX3245X", "Mercedes", "SIQOWE-2903");
-                        vanDriver.Vehicle = van;
+
+                        // Set up payment amount
                         payment.Add("Deposit", 50.30);
                         payment.Add("Booking Fee", 4.30);
 
-                        ride = customer.RideList[0];
+                        // Set associations
+                        vanDriver.Vehicle = van;
                         ride.Driver = vanDriver;
+
                         valid = true;
                         break;
 
                     case "3":
 
+                        // Create Bus Driver
                         DriverAccount busDriver = new DriverAccount("3000-4000-3000-4000", "OCBC", "BusDriver", "93223030", "BusDriver@gmail.com");
+                        
+                        // Create Bus
                         ExcursionBus bus = new ExcursionBus(35.30, "GFL42805X", "Mercedes", "SIQOWE-2903");
-                        busDriver.Vehicle = bus;
 
+                        // Set up payment amount
                         payment.Add("Deposit", 35.30);
-                        ride = customer.RideList[0];
+
+                        // Set associations
+                        busDriver.Vehicle = bus;
                         ride.Driver = busDriver;
+
                         valid = true;
                         break;
 
@@ -286,7 +276,9 @@ namespace SEAssignment
                 }
             }
 
-            input = "";
+            Console.WriteLine("");
+
+            // Initalizing receipt's payments
             valid = false;
 
             Receipt receipt = ride.Receipt;
@@ -303,18 +295,21 @@ namespace SEAssignment
                         "[3] Credit Card\n" +
                         "[4] Gift Card & Credit Card\n" +
                         "[5] Points & Credit Card\n" +
+                        "[6] No Payment (Mainly applicable for ride requested state) \n" + 
                         "\n" +
                         "Set-Up will automatically split full payment cost across payment methods"
                     );
 
                     input = Console.ReadLine();
 
+                    // Create sample gift card
                     GiftCard giftCard = new GiftCard(1000.00);
 
                     switch (input)
                     {
                         case "1":
 
+                            // Pay by gift card
                             foreach (KeyValuePair<string, double> item in payment)
                             {
                                 PaymentGiftCard payGift = new PaymentGiftCard(giftCard, receipt, item.Key, item.Value);
@@ -324,6 +319,8 @@ namespace SEAssignment
                             break;
 
                         case "2":
+
+                            // Pay by points
                             foreach (KeyValuePair<string, double> item in payment)
                             {
                                 PaymentPoints payPoint = new PaymentPoints(receipt, item.Key, item.Value);
@@ -332,6 +329,8 @@ namespace SEAssignment
                             break;
 
                         case "3":
+
+                            // Pay by credit card
                             foreach (KeyValuePair<string, double> item in payment)
                             {
                                 PaymentCreditCard payCC = new PaymentCreditCard("4039 4810 9302 9403", receipt, item.Key, item.Value);
@@ -342,6 +341,7 @@ namespace SEAssignment
 
                         case "4":
 
+                            // Pay by gift card and credit card
                             foreach (KeyValuePair<string, double> item in payment)
                             {
                                 PaymentGiftCard payGift = new PaymentGiftCard(giftCard, receipt, item.Key, item.Value / 2);
@@ -353,12 +353,19 @@ namespace SEAssignment
 
                         case "5":
 
+                            // Pay by points and credit card
                             foreach (KeyValuePair<string, double> item in payment)
                             {
                                 PaymentPoints payPoint = new PaymentPoints(receipt, item.Key, item.Value / 2);
                                 PaymentPoints payCC = new PaymentPoints(receipt, item.Key, item.Value / 2);
                             }
 
+                            valid = true;
+                            break;
+
+                        case "6":
+
+                            // No payment
                             valid = true;
                             break;
 
@@ -369,8 +376,15 @@ namespace SEAssignment
                 }
             }
 
+            // Cancel Ride
             ride.cancelRide();
 
+            // Print general data
+            Console.WriteLine("");
+            Console.WriteLine("Print Showcase");
+            Console.WriteLine("Receipt Status" + receipt.Status);
+
+            // Print payment refund data
             foreach (Payment item in receipt.PaymentList)
             {
                 string method = "";
