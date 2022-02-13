@@ -9,7 +9,7 @@ namespace SEAssignment
         {
 
             Menu();
-           
+
         }
 
         static void Menu()
@@ -94,10 +94,82 @@ namespace SEAssignment
 
         static void AcceptBooking()
         {
-            //DriverAccount 
+            CustomerAccount customer = new CustomerAccount("Cust", "93090429", "cust@gamil.com");
 
-            Console.WriteLine("Accept Booking\n");
-            //implementation here
+            RegisterDriver();
+
+            Ride ride = customer.makeBooking();
+
+            //Prompt user for state
+            Console.WriteLine("What state would you like to execute the use case in?");
+            Console.WriteLine(
+                    "\n" +
+                    "[1] RideRequestedState\n" +
+                    "[2] DriverAssignedState\n" +
+                    "[3] CustomerWaitingState\n" +
+                    "[4] DriverArrivedState\n" +
+                    "[5] RideStartedState\n" +
+                    "[6] RideDoneState\n" +
+                    "[7] CustomerCancelledState\n"
+                );
+
+            string opt;
+            opt = Console.ReadLine();
+
+            switch (opt)
+            {
+                case "1":
+                    ride.setState(ride.RideRequestedState);
+                    break;
+
+                case "2":
+                    ride.setState(ride.DriverAssignedState);
+                    break;
+
+                case "3":
+                    ride.setState(ride.CustomerWaitingState);
+                    break;
+
+                case "4":
+                    ride.setState(ride.DriverArrivedState);
+                    break;
+
+                case "5":
+                    ride.setState(ride.RideStartedState);
+                    break;
+
+                case "6":
+                    ride.setState(ride.RideDoneState);
+                    break;
+
+                case "7":
+                    ride.setState(ride.CustomerCancelledState);
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid input.\n");
+                    break;
+            }
+
+            Console.WriteLine("\n[Configuring...] Setting Ride State");
+
+            Console.WriteLine("Use Case: Accept Booking\n");
+
+            Console.WriteLine("Do you accept the customer's booking? (Y/N):");
+            string status = Console.ReadLine();
+
+            if (status == "Y")
+            {
+                Console.WriteLine("Booking has been accepted");
+
+            }
+
+            if (status == "N")
+            {
+                Console.WriteLine("Booking has been rejected.");
+                Console.WriteLine("Booking fee has been refunded back to the customer.");
+
+            }
         }
 
         static void CancelBooking()
@@ -256,7 +328,7 @@ namespace SEAssignment
 
                         // Create Bus Driver
                         DriverAccount busDriver = new DriverAccount("3000-4000-3000-4000", "OCBC", "BusDriver", "93223030", "BusDriver@gmail.com");
-                        
+
                         // Create Bus
                         ExcursionBus bus = new ExcursionBus(35.30, "GFL42805X", "Mercedes", "SIQOWE-2903");
 
@@ -295,7 +367,7 @@ namespace SEAssignment
                         "[3] Credit Card\n" +
                         "[4] Gift Card & Credit Card\n" +
                         "[5] Points & Credit Card\n" +
-                        "[6] No Payment (Mainly applicable for ride requested state) \n" + 
+                        "[6] No Payment (Mainly applicable for ride requested state) \n" +
                         "\n" +
                         "Set-Up will automatically split full payment cost across payment methods"
                     );
